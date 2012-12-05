@@ -1,0 +1,10 @@
+TODO:
+-----------------
+
+- Alle Faktoren einfügen
+
+- Berechnungen abspeichern
+
+- MobileVersion
+
+- App
