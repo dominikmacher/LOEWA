@@ -8,5 +8,5 @@ Diese sollen Personen helfen LöWa-Berechnungen schneller und effizienter durchf
 
 Aktuelle Feature-Requests:
 - Mobile-Web-Version (jquery Mobile)
-- Berechnungen abspeichern
+- Berechnungen ausdrucken  
 - Android App
