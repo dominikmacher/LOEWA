@@ -1,7 +1,17 @@
+<script type="text/javascript" src="js/calculation.js"></script>
+
 <?php 
 	include("anhang.php"); 
 	ksort($nutzungsfaktoren, SORT_REGULAR);
-	echo '<script type="text/javascript">var nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
+	echo '<script type="text/javascript"> var nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
+
+	if (isset($_GET['json'])) {
+		if (file_exists("data/".$_GET['json'].".json")) {
+			$handle = fopen("data/".$_GET['json'].".json", "rb");
+			echo '<script type="text/javascript"> json_data = jQuery.parseJSON(\''.stream_get_contents($handle).'\'); </script>';
+			fclose($handle);
+		}
+	}
 ?>
 
 <h1>Objektbezogene Löschwasserbedarfsermittlung <small>(gemäß TRVB F 137)</small></h1>
@@ -163,9 +173,6 @@
 		</div>
 	</div>
 </div>
-
-
-<script type="text/javascript" src="js/calculation.js"></script>
 
 
      

@@ -1,7 +1,41 @@
 var qlwg, qlwi, qlwm, nutzung, ab_in, qlwo, hl, lw, lw_vorrat, brandflaeche;
+var json_data = "";
 
-$(function() {
+$(document).ready(function() {
 	
+	if (json_data != "") {
+		//assign values:
+		$('#qlwg').val(json_data.qlwg);
+		$('#label_lwg').hide();
+
+		$("input[name='options_brandbelastung'][value='"+json_data.qlwi+"']").attr('checked',true);
+		console.log($("input[name='options_brandbelastung'][value='"+json_data.qlwi+"']"));
+
+		$('#nutzung').val(json_data.nutzung);
+		if (json_data.nutzung != "") {
+			$('#lfd_nr').val(json_data.nutzung);
+			$('#qlwm').val(nutzungsfaktoren[json_data.nutzung][2]);
+			$('#label_nutzung').hide();
+		}
+		else {
+			$('#lfd_nr').val("");
+			$('#qlwm').val("");
+			$('#label_nutzung').show();
+		}
+
+		$('#ab_in').val(json_data.ab_in);
+		$('#options_brandflaeche1').attr('checked',json_data.brandflaeche[0]=="true");
+		$('#options_brandflaeche2').attr('checked',json_data.brandflaeche[1]=="true");
+		$('#options_brandflaeche3').attr('checked',json_data.brandflaeche[2]=="true");
+		$('#options_brandflaeche4').attr('checked',json_data.brandflaeche[3]=="true");
+		$('#options_brandflaeche5').attr('checked',json_data.brandflaeche[4]=="true");
+
+		$('#hl').val(json_data.hl);
+		
+		calcBrandflaeche();
+		calcResult();
+	}
+
 	$('#btnSave').hide();
 	$('#btnDialog').hide();
 	calcResult();
@@ -12,6 +46,7 @@ $(function() {
 			function(data) {
 				if (data=="saved") {
 					$('#btnClose').click();
+					window.location.href="?id=list";
 				}
 			}
 		);
