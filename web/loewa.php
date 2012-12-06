@@ -6,9 +6,9 @@
 
 <h1>Objektbezogene Löschwasserbedarfsermittlung <small>(gemäß TRVB F 137)</small></h1>
 
-<p>Objekt: .................</p>
+<!--<p>Objekt: .................</p>
 
-<p>Brandabschnitt: .........</p>
+<p>Brandabschnitt: .........</p>-->
 
 <br><br>
 
@@ -147,8 +147,12 @@
 
 <!-- Löschwasserbereitstellung -->
 <div class="row-fluid">
-	<div class="span12">
+	<div class="span8">
 		<h4>3. Löschwasserbereitstellung</h4>
+	</div>
+	<div class="span4">
+		<!-- Button to trigger modal -->
+		<a href="#myModal" role="button" id="btnDialog" class="btn btn-success" data-toggle="modal">Berechnung speichern</a>
 	</div>
 	<div class="row-fluid">
 		<div class="span5 offset1" style="font-weight:bold">
@@ -161,142 +165,30 @@
 </div>
 
 
-<script type="text/javascript">
-$(function() {
-	
-	$('#qlwg').keyup(function() {
-		$(this).val($(this).val().replace(/,/,"."));
-
-		if ($(this).val()!="") {
-			$('#label_lwg').hide();
-		}
-		else {
-			$('#label_lwg').show();
-		}
-		calcResult();
-	});
-
-	$('#hl').keyup(function() {
-		$(this).val($(this).val().replace(/,/,"."));
-
-		if ($(this).val()=="") {
-			$('#label_hl').hide();
-		}
-		else if ($(this).val()<=2.5) {
-			$('#label_hl').show();
-		}
-		calcResult();
-	});
-
-	$('#nutzung').change(function() {
-		var key = $(this).val();
-		if (key!="") {
-			$('#lfd_nr').val(key);
-			$('#qlwm').val(nutzungsfaktoren[key][2]);
-			$('#label_nutzung').hide();
-		}
-		else {
-			$('#lfd_nr').val("");
-			$('#qlwm').val("");
-			$('#label_nutzung').show();
-		}
-		calcResult();
-	});
-
-	$('#options_brandbelastung1').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandbelastung2').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandbelastung3').click(function() {
-		calcBrandflaeche();
-	});
+<script type="text/javascript" src="js/calculation.js"></script>
 
 
-	$('#options_brandflaeche1').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandflaeche2').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandflaeche3').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandflaeche4').click(function() {
-		calcBrandflaeche();
-	});
-	$('#options_brandflaeche5').click(function() {
-		calcBrandflaeche();
-	});
-	$('#ab_in').keyup(function() {
-		$(this).val($(this).val().replace(/,/,"."));
-		calcBrandflaeche();
-	});
-
-});
-
-function calcBrandflaeche() {
-	// Prinzipiell in => out value:
-	$('#ab_out').val($('#ab_in').val());
-
-	// Check checkboxes:
-	var lowestAb=0;
-	if (document.loewa_form.options_brandflaeche5.checked) {
-		lowestAb = 750;
-	}
-	else if (document.loewa_form.options_brandflaeche4.checked) {
-		lowestAb = 1200;
-	}
-	else if (document.loewa_form.options_brandflaeche3.checked) {
-		lowestAb = 2000;
-	}
-	
-	if (lowestAb!=0) {
-		if (lowestAb < $('#ab_out').val() || $('#ab_out').val()==0 || $('#ab_out').val()=="") {
-			$('#ab_out').val(lowestAb);
-		}
-	}
-
-	if ($('#ab_out').val()!="") {
-		$('#label_ab').hide();
-	}
-	else {
-		$('#label_ab').show();
-	}
-	calcResult();
-}
-
-function calcResult() {
-	if ($('#ab_out').val()!="" && $('#qlwm').val()!="" && $('#qlwg').val()!="") {
-		
-		var qlwi = parseFloat($("input[name='options_brandbelastung']:checked").val());
-		var qlwm = parseFloat($('#qlwm').val());
-		var ab = parseFloat($('#ab_out').val());
-
-		var qlwo = (qlwi + qlwm);
-
-		if ($('#hl').val()!="" && $('#hl').val()>2.5) {
-			// extended formula:
-			qlwo *= (ab + 4*($('#hl').val()-2.5) * Math.sqrt(ab));
-		}
-		else {
-			qlwo *= ab;
-		}
-		
-		$('#qlwo').val(qlwo);
-
-		// Bereitstellung:
-		var lw = qlwo - parseFloat($('#qlwg').val());
-		$('#lw_bereitstellung').val(lw);
-		$('#lw_vorrat').val(lw*90/1000);
-	}
-	else {
-		$('#qlwo').val('');
-		$('#lw_bereitstellung').val('');
-		$('#lw_vorrat').val('');
-	}
-}
-</script>
+     
+    <!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Berechnung abspeichern</h3>
+    </div>
+    <div class="modal-body">
+		<div class="row-fluid">
+			<div class="span4">Objekt: </div>
+			<div class="span8"><input type="text" id="object" style="width:300px" /></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Brandabschnitt: </div>
+			<div class="span8"><input type="text" id="brandabschnitt" style="width:300px" /></div>
+		</div>
+    </div>
+    <div class="modal-footer">
+	    <button class="btn" id="btnClose" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button id="btnSave" class="btn btn-primary">Save changes</button>
+ 	</div>
+</div>
 
 </form>

@@ -1,5 +1,8 @@
 <?php
   $site = "loewa.php";
+  if (isset($_GET['id'])) {
+    $site = $_GET['id'].".php";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +42,12 @@
           <span class="brand" href="#">VB-Berechnungs-App</span>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+            <?php
+              echo '<li '.($site=="loewa.php" ? 'class="active"' : "").'><a href="?id=loewa">Berechnung</a></li>';
+              echo '<li '.($site=="list.php" ? 'class="active"' : "").'><a href="?id=list">Abgespeicherte Objekte</a></li>';
+              echo '<li '.($site=="about.php" ? 'class="active"' : "").'><a href="#about">About</a></li>';
+              echo '<li '.($site=="contact.php" ? 'class="active"' : "").'><a href="#contact">Contact</a></li>';
+            ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
