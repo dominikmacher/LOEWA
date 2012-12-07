@@ -1,0 +1,414 @@
+1 Abstellraum für diverse Waren 20,1 1,8 
+38 Bitumenaufbereitung 38,7 3,8
+5 Altersheim 13,3 1,6 
+39 Blech, Blechwaren 7,5 1,1
+6 Aluminium, Verarbeitung 29,5 3,6 
+40 Blechwaren, Auslieferung 7,5 1,1
+7 Antiquitäten, Verkauf 16,4 1,5 
+41 Bleistifte (H) 18,7 2,1
+8 Apotheke (inkl. Lager) 24,3 4,3 
+43 Bodenbeläge, brennbare (H) 27,3 2,0
+9 Archiv 15,9 1,2 
+44 Bodenbeläge, Verkauf 24,4 1,5
+10 Armaturen 16,9 1,8 
+45 Bodenpflegemittel (H) 40,1 4,5
+11 Arzneimittel (Grobdurchschnitt) 28,9 2,8 
+46 Bonbons (H) 23 3,9
+12 Arztpraxis 19,2 2,0 
+47 Bonbons, Wicklerei, Verpackung 21,4 3,2
+13 Asbestwaren 6 0,6 48 Boote, Holz (H) 15,1 1,6
+14 Asphalt (in Fässern, Blöcken) (H) 39,8 3,8 
+49 Boote, Kunststoff 22,9 2,5
+15 Ausstellung, Auto- 25,3 3,0 
+50 Brauerei 13,8 1,7
+16 Ausstellung, Gemälde 18,1 1,7 
+51 Buchbinderei 16,8 1,4
+17 Ausstellung, Maschinen 7,5 1,0 
+52 Bücher (=Bibliothek) 13,8 0,8
+18 Ausstellung, Möbel 13,3 1,6 
+53 Bücher, Verkauf 15,5 1,2
+19 Auto, Lackiererei 28,6 4,0 
+54 Büro 14,8 1,4
+20 Auto, Montage 24,4 2,1 
+55 Büromaschinen (H) 18,4 1,7
+21 Auto, Reparaturwerkstätte 27,9 2,5 
+56 Büromaschinen, Verkauf 18,4 1,7
+22 Auto, Garagen 25,3 3,0 
+57 Büromaterial 16,6 1,4
+23 Autozubehör 19 1,7 
+58 Bürstenwaren (H) 18,1 1,7
+24 Backwaren, Großbäckerei 16,5 1,8 
+59 Celluloid (H) 17 9,0
+25 Bank, Schalterhalle 13,3 1,6 
+60 Chemische Reinigung 27,7 3,0
+26 Bastgewebe 15,7 0,6 
+61 Dachpappe (H) 20,8 2,1
+29 Besen (H) 19 1,5 
+62 Datenverarbeitung 17 1,5
+30 Besteck 7,5 1,0 
+63 Dispersionsfarben (H) 4,7 3,0
+33 Bettfedernreinigung 19,4 2,5 
+64 Draht (isoliert) (H) 18,7 1,5
+34 Bibliothek 13,8 0,8 
+66 Drogeriewaren, Verkauf 19,1 3,3
+35 Bijouteriewaren 15,6 1,6 
+67 Druckfarben (H) 24,9 3,3
+36 Bijouteriewaren, Verkauf 16,3 1,5 
+69 Drucksachen, Auslieferung 16,3 1,1
+37 Bilderrahmen 15,5 1,7 
+70 Drucksachen, Maschinensaal 19,4 1,8
+114 Fleischwaren (H und Verkauf) 20,8 2,1 
+115 Flugzeuge (H) 24,1 2,8
+116 Flugzeughallen 30 4,5
+71 Drucksachen, Packerei 17 1,0 
+72 Drucksachen, Setzerei 13,3 1,8 
+73 Düngemittel (=Kunstdünger) 28,9 2,9 
+75 Einkaufszentren 16,6 1,8 
+118 Folien, Metall- (H) 20,5 2,4
+76 Eisenwarengeschäft 14,1 1,4 
+119 Fotoapparate 20,2 1,9
+77 Eiweiß (H) 35,2 3,4 
+120 Fotoatelier 16,9 1,8
+78 Elektriker-Werkstätte 18,5 2,3 
+121 Fotofilme und -platten (=Filme) 21,3 2,0
+79 Elektroapparate (H) 18,4 1,7 
+122 Fotogeschäft 16,2 1,6
+80 Elektroapparate, Reparatur 18,1 2,1 
+125 Fruchtsäfte (H) 12 1,6
+82 Elektromotoren (H) 18,5 2,3 
+126 Funkstationen 18,8 1,9
+83 Elektronische Geräte (H) 18,8 1,9 
+127 Furniere (H) 17,8 1,8
+84 Elektrische Geräte, Reparatur 18,1 2,1 
+128 Futtermittel (H) 24 2,5
+86 Espresso 18 1,8  
+129 Galvanik 27,3 2,7
+87 Essig (H) 16,9 2,8 
+130 Garage (=Autogarage) 25,3 3,0
+90 Fahrräder (H) 19,7 2,6
+131 Garderobe: Holzkasten 17,6 1,6
+91 Fahrzeuge (H) 23,8 2,2 
+132 Garderobe: Metallkästen 18,1 1,2
+92 Fahrzeugreifen (H) 23,8 2,5 
+133 Gasglühkörper (H) 17,4 1,9
+93 Farben und brennbare Lösungsmittel 25 4,1 
+134 Gasthaus, Gasthof 14,6 1,7
+94 Farben, Mischerei 21,8 3,3 
+135 Gelatine und -waren (H) 25,2 3,3
+95 Farben, Verkauf 20,2 2,7 
+136 Gemüse, frisch, Verkauf 16,4 1,3 
+96 Färbholzextrakte 19,9 3,0 
+137 Getränke, nicht alkohol. (H) 12 1,2
+99 Faserstoffe, Kunstfasern 16,4 1,9 
+138 Getreide-Mühle 16,5 1,8
+100 Faserstoffe, Kunstseide (H) 18,7 2,0 
+139 Gewürze (H) 12 1,6
+101 Fässer, Holz (H) 14,4 1,6 
+140 Gips und -waren (H) 17,7 2,0
+102 Fässer, Kunststoff (H) 22 2,1 
+141 Glas (H) 13,3 1,8
+107 Fernsehstudio 18,4 1,8 
+142 Glaserei (H) 14,4 1,7
+108 Fette (H) 32,9 3,7 
+143 Glaswaren (H) 14 1,6
+110 Filmatelier 18,4 1,7 
+144 Glaswaren, Ätzerei 15,2 1,8
+111 Filme und -platten (H) 21,3 2,0 
+145 Glaswaren, Auslieferung 14,8 2,0
+112 Filze (H) 19,3 2,0 
+146 Glaswaren, Glasbläserei 14,8 2,0
+113 Filzwaren (H) 18,3 1,4 
+147 Glaswaren, Glasmalerei 14,4 2,0
+188 Installateurwerkstatt 20 2,0
+148 Glaswaren, Verkauf 14,6 1,8 
+189 Jalousien (H) 20,2 1,9
+149 Glühlampen (H) 13,7 1,8 
+190 Jugendherberge 13,8 1,6
+150 Goldschmiedewaren (H) 17,2 2,1 
+191 Kabel (H) 17,1 1,6
+152 Gummiwaren (H) 32,8 3,1 
+193 Kaffee-Extrakt (H) 12 1,6
+153 Gummiwaren, Verkauf 30,9 2,5 
+194 Kaffeerösterei 12 1,6
+154 Hafnerwaren (H) 13,3 1,8 
+195 Kakaoprodukte (H) 21,6 3,2
+155 Handschuhe (H) 18,9 1,9 
+196 Kalkofen 13,3 1,8
+156 Hartfaserplatten (H) 13,8 1,8 
+198 Kantine 15,3 1,7
+157 Haushaltsgeräte (H) 20,9 2,0 
+199 Karosserien, Metall- (H)  27,7 2,5
+158 Haushaltsgeräte, Verkauf 19,1 1,8 
+200 Karton (H) 31,7 1,5
+160 Hefe (H) 12 1,6 
+201 Kartonagen (H) 18,4 1,3
+161 Heizraum 34,6 3,4 
+202 Kartonagen, Auslieferung 14 1,2
+168 Holzleisten und -stifte (H) 14,4 1,7 
+203 Kaufhaus (=Warenhaus) 17,8 2,0
+169 Holzmehl (H) 14,6 1,9 
+204 Käse (H) 12 1,6 
+170 Holzwaren, Auslieferung 15,7 1,7 
+205 Keramikwaren (H) 13,8 1,8
+171 Holzwaren, Banktischlerei 14,8 1,8 
+206 Kerzen (H) 32 3,6
+172 Holzwaren, Drechslerei 15 1,8 
+207 Kesselhaus 19,2 2,1
+173 Holzwaren, Imprägniererei 21,6 2,8 
+208 Kindergarten 15 1,6
+174 Holzwaren, Maschinentischlerei 15 1,9 
+209 Kinderheim 16 1,7
+175 Holzwaren, Modelltischlerei 15,3 2,0 
+210 Kinderwagen (H) 17,1 1,8
+176 Holzwaren, Sägewerk 16,1 1,9 
+211 Kinderwagen, Verkauf 18,9 1,8
+177 Holzwaren, Schleiferei 14,7 1,8 
+212 Kino 17,3 1,8
+178 Holzwaren, Spritzlackiererei 17,2 2,4 
+213 Kirche 13,5 1,8
+179 Holzwaren, Trocknerei (H) 15,4 2,1 
+214 Kisten, hölzerne 13,3 1,6
+180 Holzwaren, Zimmerei 14,7 1,8 
+215 Kitte (H) 19,3 2,1
+181 Holzwaren, Zuschneiderei 14,4 1,8 
+216 Klebstoffe (H) 24,7 3,3
+184 Hotel, Zimmer 15,3 1,7 
+219 Klischees (H) 26 2,4
+185 Hotel, Restaurant, Säle 16 1,7 
+224 Kondensmilch (H) 12 1,6
+186 Hüte (H) 16,4 1,6 
+225 Konditoreiwaren(H) 15,2 2,0
+187 Hüte, Verkauf 17,1 1,4 
+226 Konserven (H) 12 1,5
+227 Korbwaren (Durchschnitt) (H) 14,4 2,0 
+267 Lebensmittel, Auslieferung 12,8 1,4
+229 Korkstein (H) 16,6 1,8 
+269 Lebensmittel, Rösterei (H) 16,3 1,6
+230 Korkwaren (H) 15,5 1,7 
+271 Lederwaren (H) 17,7 1,7
+231 Kosmetika (H) 21,8 3,8 
+272 Lederwaren, Verkauf 19,3 1,4
+232 Krankenhaus (=Spital) 15,7 2,2
+273 Lederwaren, Zuschneiderei 18,9 1,9 
+233 Kugellager (H) 7,4 1,0 
+274 Leim (H) 22,5 2,3
+234 Kühlhaus 26,4 2,7 
+275 Leuchtstoffröhren (H) 19,6 2,5
+235 Kühlschränke (H) 21,3 2,0 
+276 Lichtpauseanstalt 16,6 1,3
+236 Kunstblumen (H) 18,4 2,0 
+277 Liköre (H) 19,7 4,2
+237 Kunstdünger (H) 28,9 2,9 
+278 Linoleum (H) 27 2,6
+238 Kunstharze (H) 28,2 2,2 
+280 Maler-Werkstätte 19,3 2,7
+239 Kunstharzplatten (H) 26,9 2,5 
+282 Marmelade (H) 16,3 1,8
+240 Kunstleder (H) 21,8 2,4 
+284 Maschinen (H) 7,4 1,0
+241 Kunstlederwaren (H) 19,5 1,9 
+285 Matratzen (nicht Schäumst,) (H) 18,2 1,8 
+243 Kunststoffe (H) 23,1 2,1 
+286 Mehl (H) 16,5 1,9
+244 Kunststoffwaren (H) 20,6 2,0 
+288 Metallwaren (H) 7,4 1,0
+245 Kunststoffwaren, Auslieferung 21,3 2,0 
+289 M.Waren: Ätzerei, Dreherei, Fräserei 7,4 1,0
+247 Kunststoffwaren, Schweißerei 24 2,6 
+290 M, waren: Gießerei 7,4 1,0
+248 Kunststoffwaren, Spritzgießerei 20,8 1,9 
+291 M.Waren: Galvanisiererei 7,4 1,0
+249 Kunststoffwaren, Stanzerei 20,9 2,0 
+292 M.Waren: Härterei 33,8 2,7
+250 Kürschnereiprodukte (H) 17,9 2,0 
+293 M.Waren: Löterei 7,4 1,0
+251 Kurzwaren, Verkauf 18,2 1,7 
+294 M.Waren: Schleiferei 7,4 1,0
+252 Labor 18,7 2,4 
+295 M.Waren: Schlosserei 16,8 1,2
+253 Labor, chemisches 20,5 2,7 
+296 M.Waren: Schmiede, Schweißerei, Spenglerei, Spritzguß 7,4 1,0
+254 Lacke (H) 25,4 3,8 297 M.Waren: Spritzlackiererei 27,2 3,6                            
+255 Lacke, Auslieferung 23,6 2,6 
+298 M.Waren: Stanzerei 7,4 0,6
+256 Lackiererei, Möbel- 19,5 2,5 
+299 M waren: Vergolderei 7,4 0,7
+257 Lackiererei, Papier- 18,9 2,1 
+300 M.Waren: Verkauf 14,4 1,4
+301 Milchpulver (H) 16,3 1,9
+266 Lebensmittel (H) 12,6 1,3
+303 Möbel, Holz- (H) 14,6 1,6
+304 Möbel, Holz-, Lackiererei 18,1 2,5 
+341 Pensionat (=Studentenheim) 14,4 1,6
+305 Möbel, Stahl- (H) 10,4 1,3 
+342 Pharmazeutische Erzeugnisse (H) 26,3 3,1
+306 Möbel, Verkauf 13,3 1,6 
+343 Pinsel (H) 16,6 1,8
+307 Molkereiprodukte (H) 17,7 1,8
+308 Motorräder (H) 22,4 2,3
+309 Mühle (=Getreimühle) 16,5 1,8
+310 Müllverbrennungsanlage (Pyrol.) 23,1 2,6
+312 Museum 15,6 1,7
+313 Musikalien, Verkauf 15 1,6 
+344 Planen, Plachen (H) 18,7 1,6
+345 Polstermöbel, ohne Schaumstoffe (H) 14,9 1,6
+346 Porzellan (H) 13,3 1,8
+347 Postamt 15,2 1,4
+348 Radiostudio 18,8 1,9
+349 Reifen (H) 23,5 2,8
+314 Musikinstrumente (Holz) (H) 16 2,3 
+315 Nähmaschinen (H) 19,8 2,0 
+351 Restaurant 16 1,7
+316 Nähmaschinen, Verkauf 20,9 2,0 
+352 Riemen (H) 19,6 2,3
+317 Naturharze (H) 31,9 2,0 
+353 Rohrgewebe (H) 18,4 1,6
+318 Neonröhren (=Leuchtstoffröhren) 19,6 2,5
+354 Röntgeninstitut 17,1 1,8
+357 Säcke, Jute- (H) 17,3 1,5
+321 Öfen und Herde (H) 7,4 0,6 
+358 Säcke, Kunststoff- (H) 16,8 1,9
+323 Optische Geräte (H) 19,2 1,8 
+359 Säcke, Papier- (H) 16,3 1,3
+324 Packerei, brennb, Waren (allg,) 18,8 1,7 
+360 Salinenprodukte (H) 15 1,7
+325 Packerei, nichtbrennb, Waren 14,6 1,4 
+361 Samen, Verkauf 15,5 1,7
+326 Paletten, hölzerne (H) 14,2 1,8 
+362 Sattlerei 18,9 2,2
+327 Papier (H) 16,7 1,6 
+363 Säuren, anorganische (H) 17 1,0
+331 Papier, Appretierung 15,9 1,4 
+364 Schallplatten (H) 20,2 1,9
+332 Papier, Aufbereitung von Holz- und Zellstoff 16,3 1,4 
+365 Schamottewaren (H) 16,6 1,9
+333 Papier, Ausrüsterei 15,5 1,4 
+366 Schaumstoffe (Durchschnitt) 32,7 4,2
+334 Papierwaren (H) 16,8 1,3 
+368 Schaumstoffwaren (H) 29 2,9
+335 Papierwaren, Verkauf 15,2 1,3 
+369 Schiffe, Metall (H) 18,8 2,0
+336 Pappe (H) 16,7 1,6 
+370 Schiffwaren (H) 23,6 3,1
+337 Parfümeriewaren (H) 18,1 3,8 
+371 Schirme (H) 18,4 2,0
+338 Parfümeriewaren, Verkauf 17,1 3,2 
+372 Schirme, Verkauf 18,4 2,0
+339 Parketten (H) 17,4 2,0 
+373 Schlachthof 12 0,8
+340 Pelze, Verkauf 17,7 1,9 
+374 Schleifmittel, -steine 20,6 1,8
+375 Schmuck (=Goldschmiedewaren) 17,2 2,1
+376 Schnüre (H) 17,4 1,5
+377 Schokolade (H) 22,7 3,9
+378 Schokolade, Conchensaal 25 4,1 
+407 Spielwaren, Verkauf 19,1 2,2
+409 Spinnereiprodukte, ReiBerei 19,4 1,4
+410 Spinnereiprodukte, Spinnerei 19,1 2,1
+411 Spinnereiprodukte, Spulerei 19,1 2,1
+379 Schokolade, Wicklerei, Packerei 18,7 2,7 
+413 Spinnereiprodukte, Zwirnerei 19,1 2,1
+380 Schuhe (H) 19,3 2,0 
+414 Spirituosen (H) 21,7 3,2
+381 Schuhe, Auslieferung 21,9 1,8 
+415 Spirituosen, Verkauf 19,7 3,0
+382 Schuhe, Verkauf 19,5 1,7 
+416 Spital 15,7 2,2
+383 Schuhleisten (H) 13,3 1,8 
+417 Sportartikel, Verkauf 19,1 1,7
+384 Schuhpflegemittel 26,7 3,9 
+419 Stärke (H) 16,3 1,6
+386 Schule 16,2 1,8 
+420 Steinmetzprodukte (H) 13,3 1,6
+387 Segelflugzeuge (H) 18,4 2,4 
+422 Strohgewebe (H) 15,2 2,1
+388 Seifen (H) 22,5 3,4 
+423 Studentenheim 14,4 1,6
+389 Seilbahnstationen 22,2 2,9 
+424 Supermarkt (=Einkaufszentren) 16,6 1,8
+390 Seilerwaren (H) 18,7 2,2 
+426 Tabakwaren (H) 15,5 2,0
+391 Seilerwaren, Verkauf 18 2,1 
+427 Tabakwaren, Verkauf 15,5 1,9
+392 Selchwaren (H) 10,8 1,1 
+431 Tapeten (H) 17 1,8
+393 Senf (H) 12 1,5 
+432 Tapeziererwaren (H) 17,3 2,0
+394 Ski (H) 19,9 2,0 
+434 Teerprodukte (H) 35 3,8
+395 Soda (H) 15,9 2,0 
+435 Teigwaren (H) 16,6 1,8
+396 Spanplatten (H) 16,8 1,7 
+436 Teigwaren, Auslieferung 16,6 1,7
+397 Spanplattenbeschichtung (H) 18,8 2,2 
+437 Telephonapparate 20,5 2,0
+398 Speiseeis (H) 20,2 2,0 
+438 Telephonzentrale 22 2,1
+399 Speisefett (H) 33,3 3,7 
+440 Teppiche (H) 19,1 2,1
+400 Speisefett, Auslieferung 29,5 3,3 
+441 Teppiche, Färberei 22 2,5
+401 Speiseöl (H) 34,5 3,4 
+442 Teppiche, Verkauf 19,5 2,1
+402 Speiseöl, Auslieferung 31,6 5,2 
+444 Textilien, Appretierung 25,5 2,2
+403 Sperrholz (H) 21,7 2,0 
+445 Textilien, Auslieferung 19,1 2,0
+404 Spiegel (H) 13,8 1,7 
+446 Textilien, Beschichtung 15,7 2,4
+405 Spielsalon 16,6 1,9 
+449 Textilien, Druckerei 20,4 2,6
+406 Spielwaren (H) 20,2 1,8 
+447 Textilien, Bettwaren (H), Bleicherei, Büglerei 15 1,7
+448 Textilien, Decken (Wolle) (H) 18,7 2,1 
+488 Versandhäuser 18,1 1,9
+450 Textilien, Färberei 21 2,3 
+489 Vulkanisieranstalt 44,5 5,3
+452 Textilien, Jutewaren (H) 15,9 2,2 
+490 Waagen (H) 18,8 2,0
+453 Textilien, Kleider (H) 18,1 2,0 
+492 Wachswaren (H) 32 3,7
+455 Textilien, Näherei 18,3 2,1 
+493 Wachswaren, Auslieferung 32,2 3,6
+456 Textilien, Packerei 17,3 1,9 
+494 Waffeln (H) 16,2 2,2
+457 Textilien, Seidenwaren (H) 18,7 2,1 
+495 Waffen (H) 19,6 2,1
+459 Textilien, Stickereiwaren (H) 18,5 2,0 
+496 Waffen, Verkauf 19,2 2,2
+460 Textilien, Strickwaren (H) 18,7 2,1 
+497 Waggons (H) 17,7 2,2
+461 Textilien, Strümpfe (H) 16,6 2,4 
+498 Wagnereiwaren (H) 19 2,1
+462 Textilien, Verkauf 17,9 2,0 
+499 Warenhaus (Verkaufsbereich) 17,8 2,0
+463 Textilien, Wasche (H) 14,9 1,6 
+500 Wäscherei 18,1 1,9
+464 Textilien, Weberei 18,7 2,1 
+501 Waschmaschinen (H) 22,4 2,0
+466 Textilien, Zuschneiderei 17,9 2,0 
+502 Waschmittel (H) 27,3 3,0
+467 Theater 19,7 2,1 
+504 Watte (H) 16,7 2,1
+469 Tiefkühlwaren (H) 12,6 1,3 
+505 Weichfaserplatten (H) 21,3 2,0
+470 Tinten (H) 30,5 2,1 
+506 Weine, Verkauf 13,3 1,8
+471 Tischlerei (=Holzwaren, Banktischlerei) 14,8 1,8
+507 Weinkeller 13,8 1,8
+472 Ton- und Töpferwaren (H) 16,6 1,9 
+508 Wellkarton (H) 16,4 1,5
+473 Torf- und Torfprodukte (H) 17,8 0,7 
+474 Traktoren (H) 26,5 2,8 
+475 Transformatoren (H) 25,5 2,3 
+476 Transformatoren, Wicklerei 16 1,7 
+477 Transformatorstationen 42 3,2 
+478 Tresore (H) 7,4 1,0 
+479 Trockenbatterien (H) 21,6 1,1 
+480 Trockengemüae (H) 17,3 2,0 
+481 Türen, Holz- (H) 13,3 1,8 
+482 Türen, Kunststoff- (H) 20,9 2,1 
+483 Uhren (H) 23,4 2,8 
+484 Uhren, Reparatur 18,5 2,4 
+485 Uhren, Verkauf 15,6 1,6 
+486 Umspannwerke 29,5 2,2 
