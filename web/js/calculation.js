@@ -12,6 +12,7 @@ $(document).ready(function() {
 		console.log($("input[name='options_brandbelastung'][value='"+json_data.qlwi+"']"));
 
 		$('#nutzung').val(json_data.nutzung);
+		nutzung = json_data.nutzung;
 		if (json_data.nutzung != "") {
 			$('#lfd_nr').val(json_data.nutzung);
 			$('#qlwm').val(nutzungsfaktoren[json_data.nutzung][2]);
@@ -52,6 +53,14 @@ $(document).ready(function() {
 		);
 		return false;
 	});
+
+	var printCallBack = function() {
+		$('#print-modal-content').contents().find(':input').prop("readonly",true);
+		$('#print-modal-content').contents().find('#nutzung').val(nutzung);
+		$('#print-modal-content').contents().find('.btn').hide();
+		$('#print-modal-content').contents().find('h1').html("<h1>Objektbezogene L&ouml;schwasser-bedarfsermittlung <small>(gem&auml;ß TRVB F 137)</small></h1>");
+	}
+	$('#btnPrint').printPreview(printCallBack);
 
 	$('#object').keyup(function() {
 		if ($(this).val()=="") {

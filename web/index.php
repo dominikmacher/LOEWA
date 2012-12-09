@@ -1,12 +1,13 @@
 <?php
-  $site = "loewa.php";
+  $sites = array("loewa.php", "list.php");
+  $site = $sites[0];
   if (isset($_GET['id'])) {
-    $site = $_GET['id'].".php";
+    $site = $sites[$_GET['id']];
   }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Freiwillige Feuerwehr Karlstetten</title>
@@ -17,6 +18,7 @@
     <meta name="author" content="">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-print.css" rel="stylesheet" media="print">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -24,9 +26,12 @@
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/print-preview.css" rel="stylesheet" type="text/css" media="screen">
 	
 	  <script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.print-preview.js" type="text/javascript" charset="utf-8"></script>
+    
   </head>
 
   <body>
@@ -43,8 +48,8 @@
           <div class="nav-collapse">
             <ul class="nav">
             <?php
-              echo '<li '.($site=="loewa.php" ? 'class="active"' : "").'><a href="?id=loewa">Berechnung</a></li>';
-              echo '<li '.($site=="list.php" ? 'class="active"' : "").'><a href="?id=list">Abgespeicherte Objekte</a></li>';
+              echo '<li '.($site=="loewa.php" ? 'class="active"' : "").'><a href="?id=0">Berechnung</a></li>';
+              echo '<li '.($site=="list.php" ? 'class="active"' : "").'><a href="?id=1">Abgespeicherte Objekte</a></li>';
               echo '<li '.($site=="about.php" ? 'class="active"' : "").'><a href="#about">About</a></li>';
               echo '<li '.($site=="contact.php" ? 'class="active"' : "").'><a href="#contact">Contact</a></li>';
             ?>
@@ -54,16 +59,13 @@
       </div>
     </div>
 
-    <div class="container">
-
+    <div id="content" class="container">
       <?php 
         if (file_exists($site)) {
           include ($site);
         }
       ?>
-
-    </div> <!-- /container -->
-
+    </div>
 
   </body>
 </html>
