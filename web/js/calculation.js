@@ -9,7 +9,6 @@ $(document).ready(function() {
 		$('#label_lwg').hide();
 
 		$("input[name='options_brandbelastung'][value='"+json_data.qlwi+"']").attr('checked',true);
-		console.log($("input[name='options_brandbelastung'][value='"+json_data.qlwi+"']"));
 
 		$('#nutzung').val(json_data.nutzung);
 		nutzung = json_data.nutzung;
