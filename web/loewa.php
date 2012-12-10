@@ -8,7 +8,9 @@
 	if (isset($_GET['json'])) {
 		if (file_exists("data/".$_GET['json'].".json")) {
 			$handle = fopen("data/".$_GET['json'].".json", "rb");
-			echo '<script type="text/javascript"> json_data = jQuery.parseJSON(\''.stream_get_contents($handle).'\'); </script>';
+			echo '<script type="text/javascript">';
+			echo ' json_data = jQuery.parseJSON(\''.stream_get_contents($handle).'\');';
+			echo '</script>';
 			fclose($handle);
 		}
 	}
@@ -206,7 +208,7 @@
     <div class="modal-body">
 		<div class="row-fluid">
 			<div class="span4">Objekt: </div>
-			<div class="span8"><input type="text" id="object" style="width:300px" /></div>
+			<div class="span8"><input type="text" id="objekt" style="width:300px" /></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Brandabschnitt: </div>

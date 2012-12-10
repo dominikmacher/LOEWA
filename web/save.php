@@ -1,6 +1,9 @@
 <?php
 	$data = json_encode($_POST);
-	$filename = "data/".$_POST['object'].".json";
+	$filename = "data/".$_POST['objekt'];
+	if (!empty($_POST['brandabschnitt']))
+		$filename.= "__".$_POST['brandabschnitt'];
+	$filename.= ".json";
 	
 	if (!file_exists($filename)) {
 		touch($filename);

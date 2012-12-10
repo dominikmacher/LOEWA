@@ -3,6 +3,10 @@ var json_data = "";
 
 $(document).ready(function() {
 	
+	$('#btnSave').hide();
+	$('#btnDialog').hide();
+	calcResult();
+
 	if (json_data != "") {
 		//assign values:
 		$('#qlwg').val(json_data.qlwg);
@@ -34,19 +38,22 @@ $(document).ready(function() {
 		
 		calcBrandflaeche();
 		calcResult();
-	}
 
-	$('#btnSave').hide();
-	$('#btnDialog').hide();
-	calcResult();
+		$('#bearbeiter').val(json_data.bearbeiter);
+		$('#datum').val(json_data.datum);
+
+		$('#objekt').val(json_data.objekt);
+		$('#brandabschnitt').val(json_data.brandabschnitt);
+		$('#btnSave').show();
+	}
 
 	$('#btnSave').click(function() {
 		$.post("save.php", 
-			{ object: $('#object').val(), qlwg: qlwg, qlwi: qlwi, nutzung: nutzung, ab_in: ab_in, hl: hl, brandflaeche: brandflaeche },
+			{ objekt: $('#objekt').val(), brandabschnitt: $('#brandabschnitt').val(), qlwg: qlwg, qlwi: qlwi, nutzung: nutzung, ab_in: ab_in, hl: hl, brandflaeche: brandflaeche, datum: $('#datum').val(), bearbeiter: $('#bearbeiter').val() },
 			function(data) {
 				if (data=="saved") {
 					$('#btnClose').click();
-					window.location.href="?id=list";
+					window.location.href="?id=1";
 				}
 			}
 		);
@@ -61,7 +68,7 @@ $(document).ready(function() {
 	}
 	$('#btnPrint').printPreview(printCallBack);
 
-	$('#object').keyup(function() {
+	$('#objekt').keyup(function() {
 		if ($(this).val()=="") {
 			$('#btnSave').hide();
 		}
