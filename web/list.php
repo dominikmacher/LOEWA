@@ -11,7 +11,7 @@ if ($handle = opendir('data')) {
 
     /* Das ist der korrekte Weg, ein Verzeichnis zu durchlaufen. */
     while (false !== ($file = readdir($handle))) {
-    	if ($file==".." || $file==".")
+    	if ($file==".." || $file=="." || $file==".gitignore")
     		continue;
 
     	echo '<tr>';
