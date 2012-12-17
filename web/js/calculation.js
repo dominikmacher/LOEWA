@@ -212,6 +212,8 @@ function calcResult() {
 		// Bereitstellung:
 		qlwg = parseFloat($('#qlwg').val());
 		lw = qlwo - qlwg;
+		if (lw<0)
+			lw=0;
 		$('#lw_bereitstellung').val(lw);
 		lw_vorrat = lw*90/1000;
 		$('#lw_vorrat').val(lw_vorrat);
