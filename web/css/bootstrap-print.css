@@ -160,8 +160,8 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -343,7 +343,7 @@ a:hover {
   display: block;
   float: left;
   width: 100%;
-  min-height: 30px;
+  min-height: 20px;
   margin-left: 2.127659574468085%;
   *margin-left: 2.074468085106383%;
   -webkit-box-sizing: border-box;
@@ -652,8 +652,7 @@ h6 small {
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 20px;
 }
 
 h2 {
@@ -667,7 +666,7 @@ h3 {
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -682,7 +681,7 @@ h6 {
 }
 
 h1 small {
-  font-size: 24px;
+  font-size: 12px;
 }
 
 h2 small {
@@ -931,9 +930,7 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
   font-weight: normal;
-  line-height: 20px;
 }
 
 input,
@@ -969,7 +966,6 @@ input[type="color"],
   height: 20px;
   padding: 4px 6px;
   margin-bottom: 9px;
-  font-size: 14px;
   line-height: 20px;
   color: #555555;
   -webkit-border-radius: 3px;

@@ -38,7 +38,7 @@
 	</div>
 </div>
 
-<br><br>
+<br class="vertical_sep"><br class="vertical_sep">
 
 <!-- Objektschutz -->
 <div class="row-fluid">
@@ -151,7 +151,7 @@
 </div>
 
 
-<br><br>
+<br class="vertical_sep"><br class="vertical_sep">
 
 <!-- L&ouml;schwasserbereitstellung -->
 <div class="row-fluid">
@@ -169,14 +169,12 @@
 </div>
 
 
-<br><br>
+<br class="vertical_sep"><br class="vertical_sep">
+<hr>
 
 
 <!-- Bearbeiter, Datum -->
 <div class="row-fluid">
-	<div class="span12">
-		<hr>
-	</div>
 	<div class="row-fluid">
 		<div class="span7" style="font-weight:bold">
 			Bearbeiter: <input type="text" id="bearbeiter" style="width:200px"> am <input type="text" id="datum" value="<?php echo date("d.m.Y"); ?>" style="width:75px">
