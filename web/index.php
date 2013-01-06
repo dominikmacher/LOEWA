@@ -18,14 +18,15 @@
     <meta name="author" content="">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-print.css" rel="stylesheet" media="print">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/bootstrap-print.css" rel="stylesheet" media="print">
+    <link href="css/print.css" rel="stylesheet" media="print">
     <link href="css/print-preview.css" rel="stylesheet" type="text/css" media="screen">
 	
 	  <script src="js/jquery-1.7.1.min.js"></script>

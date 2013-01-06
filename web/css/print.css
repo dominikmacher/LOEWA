@@ -1,0 +1,13 @@
+br.vertical_sep {
+	display: none;
+}
+
+input, 
+select, 
+textarea {
+	background-color: #EEEEEE;
+}
+
+h1 {
+	margin: 0px;
+}
