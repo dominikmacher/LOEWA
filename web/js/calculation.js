@@ -189,6 +189,10 @@ function calcBrandflaeche() {
 	calcResult();
 }
 
+function roundResult(v) {
+	return Math.round(v * 100) / 100;
+}
+
 function calcResult() {
 	if ($('#ab_out').val()!="" && $('#qlwm').val()!="" && $('#qlwg').val()!="") {
 		
@@ -207,7 +211,7 @@ function calcResult() {
 			qlwo *= ab;
 		}
 		
-		$('#qlwo').val(qlwo);
+		$('#qlwo').val(roundResult(qlwo));
 
 		// Bereitstellung:
 		qlwg = parseFloat($('#qlwg').val());
@@ -215,11 +219,9 @@ function calcResult() {
 		if (lw<0)
 			lw=0;
 
-		lw = Math.round(lw * 100) / 100;
-		$('#lw_bereitstellung').val(lw);
+		$('#lw_bereitstellung').val(roundResult(lw));
 		lw_vorrat = lw*90/1000;
-		lw_vorrat = Math.round(lw_vorrat * 100) / 100;
-		$('#lw_vorrat').val(lw_vorrat);
+		$('#lw_vorrat').val(roundResult(lw_vorrat));
 
 		$('#btnDialog').show();
 	}
