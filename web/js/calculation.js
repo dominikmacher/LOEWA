@@ -214,8 +214,11 @@ function calcResult() {
 		lw = qlwo - qlwg;
 		if (lw<0)
 			lw=0;
+
+		lw = Math.round(lw * 100) / 100;
 		$('#lw_bereitstellung').val(lw);
 		lw_vorrat = lw*90/1000;
+		lw_vorrat = Math.round(lw_vorrat * 100) / 100;
 		$('#lw_vorrat').val(lw_vorrat);
 
 		$('#btnDialog').show();
