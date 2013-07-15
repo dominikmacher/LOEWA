@@ -7,7 +7,8 @@ Diese sollen Personen helfen LöWa-Berechnungen schneller und effizienter durchf
 
 
 Aktuelle Feature-Requests:
-- Berechnungen abspeichern [erledigt]
-- Berechnungen ausdrucken [erledigt]
 - Android App
-- Mobile-Web-Version (jquery Mobile)
+
+
+Demo-Link (Speichern-Funktionalität deaktiviert): 
+http://loewa.feuerwehr-karlstetten.org
