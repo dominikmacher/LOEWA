@@ -1,5 +1,5 @@
 <?php
-  $sites = array("loewa.php", "list.php");
+  $sites = array("loewa.php", "list.php", "about.php");
   $site = $sites[0];
   if (isset($_GET['id'])) {
     $site = $sites[$_GET['id']];
@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <title>Freiwillige Feuerwehr Karlstetten</title>
-    <link type="image/x-icon" rel="shortcut icon" href="../../templates/feuerwehr-karlstetten/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="http://www.feuerwehr-karlstetten.org//cms/templates/feuerwehr-karlstetten/favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -45,13 +45,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <span class="brand" href="#">VB-Berechnungs-App</span>
+          <span class="brand" href="#"><img src="img/logo.png" style="height:19px;margin-top:-5px" alt="FFK Logo">&nbsp;&nbsp;VB-Berechnungs-App</span>
           <div class="nav-collapse">
             <ul class="nav">
             <?php
               echo '<li '.($site=="loewa.php" ? 'class="active"' : "").'><a href="?id=0">Berechnung</a></li>';
               echo '<li '.($site=="list.php" ? 'class="active"' : "").'><a href="?id=1">Abgespeicherte Objekte</a></li>';
-              echo '<li '.($site=="about.php" ? 'class="active"' : "").'><a href="#about">About</a></li>';
+              echo '<li '.($site=="about.php" ? 'class="active"' : "").'><a href="?id=2">About</a></li>';
               echo '<li '.($site=="contact.php" ? 'class="active"' : "").'><a href="#contact">Contact</a></li>';
             ?>
             </ul>

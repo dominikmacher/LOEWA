@@ -69,7 +69,7 @@
 
 	<div class="row-fluid">
 		<div class="span12">
-			<strong>2.2. Spezifische L&ouml;schwasserrate f&uuml;r die mobile Brandbelastung</strong> (erst 40 Daten vorhanden...)
+			<strong>2.2. Spezifische L&ouml;schwasserrate f&uuml;r die mobile Brandbelastung</strong>
 		</div>
 	</div>
 	<div class="row-fluid">
