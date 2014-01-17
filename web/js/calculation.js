@@ -1,8 +1,28 @@
 var qlwg, qlwi, qlwm, nutzung, ab_in, qlwo, hl, lw, lw_vorrat, brandflaeche;
 var json_data = "";
+var nutzungsfaktoren;
 
 $(document).ready(function() {
 	
+	/*$('#bootstrap_test').typeahead({
+		source: function(query, process) {
+			nutzungen = [];
+			$.each(nutzungsfaktoren, function (i, factor) {
+				nutzungen.push(factor[0]);
+			});
+		    process(nutzungen);
+		},
+		items: 15,
+		matcher: function (item) {
+		    if (item.toLowerCase().indexOf(this.query.trim().toLowerCase()) != -1) {
+		        return true;
+		    }
+		},
+		updater: function(val) {
+			console.log(e);
+		}
+	});*/
+
 	$('#btnSave').hide();
 	$('#btnDialog').hide();
 	calcResult();

@@ -3,7 +3,7 @@
 <?php 
 	include("anhang.php"); 
 	ksort($nutzungsfaktoren, SORT_REGULAR);
-	echo '<script type="text/javascript"> var nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
+	echo '<script type="text/javascript"> nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
 
 	if (isset($_GET['json'])) {
 		if (file_exists("data/".$_GET['json'].".json")) {
@@ -85,6 +85,7 @@
 					}
 				?>
 			</select>
+			<!--<input type="text" id="bootstrap_test" data-provide="typeahead">-->
 			<div id="label_nutzung"><span class="label label-warning">Bitte w&auml;hlen Sie einen Nutzungsfaktor...</span></div>
 		</div>
 		<div class="span4" style="font-weight:bold">
@@ -115,7 +116,7 @@
 				<input type="checkbox" id="options_brandflaeche4" name="options_brandflaeche4"> Betriebsfeuerwehr mit st&auml;ndigem Bereitschaftsdienst S2 gem&auml;ß TRVB 100 und automatischer Brandmeldeanlage gem&auml;ß TRVB S 123
 			</label>
 			<label class="checkbox">
-				<input type="checkbox" id="options_brandflaeche5" name="options_brandflaeche5"> Betriebsfeuerwehr mit st&auml;ndigem Bereitschaftsdienst S2 gem&auml;ß TRVB 100 und automatischer Brandmeldeanlage gem&auml;ß TRVB S 123
+				<input type="checkbox" id="options_brandflaeche5" name="options_brandflaeche5"> Automatische L&ouml;schanlage mit automatischer Alarmweiterleitung gem&auml;ß TRVB S 114
 			</label>
 		</div>
 		<div class="span5">
