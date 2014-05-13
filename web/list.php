@@ -3,13 +3,14 @@ if (!isset($_SESSION['LOEWA_USER'])) {
     echo '<p class="text-error" style="font-weight:bold">Bitte melden Sie sich an!</p>';
 }
 else {
+    $dir = "data/".$_SESSION['LOEWA_USER']."/";
     if (isset($_GET['delete'])) {
-    	if (file_exists("data/".$_GET['delete'].".json")) {
-    		unlink("data/".$_GET['delete'].".json");
+    	if (file_exists($dir.$_GET['delete'].".json")) {
+    		unlink($dir.$_GET['delete'].".json");
     	}
     }
 
-    if ($handle = opendir('data')) {
+    if (is_dir($dir) && $handle = opendir($dir)) {
         echo '<br>';
         echo '<table>';
 

@@ -5,9 +5,9 @@
 	ksort($nutzungsfaktoren, SORT_REGULAR);
 	echo '<script type="text/javascript"> nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
 
-	if (isset($_GET['json'])) {
-		if (file_exists("data/".$_GET['json'].".json")) {
-			$handle = fopen("data/".$_GET['json'].".json", "rb");
+	if (isset($_GET['json']) && isset($_SESSION['LOEWA_USER'])) {
+		if (file_exists("data/".$_SESSION['LOEWA_USER']."/".$_GET['json'].".json")) {
+			$handle = fopen("data/".$_SESSION['LOEWA_USER']."/".$_GET['json'].".json", "rb");
 			echo '<script type="text/javascript">';
 			echo ' json_data = jQuery.parseJSON(\''.stream_get_contents($handle).'\');';
 			echo '</script>';
@@ -185,7 +185,9 @@
 			<a href="#" role="button" id="btnPrint" class="btn btn-primary"><i class="icon-print icon-white"></i> Drucken</a>
 			&nbsp;&nbsp;&nbsp;
 			<!-- Button to trigger modal -->
+		<?php if (isset($_SESSION['LOEWA_USER'])) { ?>
 			<a href="#saveModal" role="button" id="btnDialog" class="btn btn-success" data-toggle="modal"><i class="icon-ok icon-white"></i> Berechnung speichern</a>
+		<?php } ?>
 		</div>
 	</div>
 </div>

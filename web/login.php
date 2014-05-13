@@ -24,7 +24,7 @@ else if (isset($_GET['username'])) {
 		$handle = fopen($fileName, "rb");
 		$json = json_decode(stream_get_contents($handle));
 		fclose($handle);
-		$_SESSION['LOEWA_USER'] = $json->username;
+		$_SESSION['LOEWA_USER'] = $_GET['username'];
 		$_SESSION['LOEWA_NAME'] = $json->name;
 		?>
 		<script type="text/javascript">

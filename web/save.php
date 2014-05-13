@@ -1,6 +1,13 @@
 <?php
+	session_start();
+
 	$data = json_encode($_POST);
-	$filename = "data/".$_POST['objekt'];
+	$dir = "data/".$_SESSION['LOEWA_USER']."/";
+	if (!is_dir($dir)) {
+		mkdir($dir);
+	}
+
+	$filename = $dir.$_POST['objekt'];
 	if (!empty($_POST['brandabschnitt']))
 		$filename.= "__".$_POST['brandabschnitt'];
 	$filename.= ".json";

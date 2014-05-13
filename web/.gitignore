@@ -1,2 +1,2 @@
-data/*.json
-users.php
+data/*
+users/*.json
