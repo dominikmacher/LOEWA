@@ -33,7 +33,7 @@
 		</div>
 		<div class="span4" style="font-weight:bold">
 			Q<sub>LWG</sub> = <input id="qlwg" type="text" style="width:100px"> l/min
-			<div id="label_lwg"><span class="label label-warning">Bitte geben Sie Q<sub>LWG</sub> an...</span></div>
+			<div id="label_lwg"><span class="label label-important">Bitte geben Sie Q<sub>LWG</sub> an...</span></div>
 		</div>
 	</div>
 </div>
@@ -86,7 +86,7 @@
 				?>
 			</select>
 			<!--<input type="text" id="bootstrap_test" data-provide="typeahead">-->
-			<div id="label_nutzung"><span class="label label-warning">Bitte w&auml;hlen Sie einen Nutzungsfaktor...</span></div>
+			<div id="label_nutzung"><span class="label label-important">Bitte w&auml;hlen Sie einen Nutzungsfaktor...</span></div>
 		</div>
 		<div class="span4" style="font-weight:bold">
 			Q<sub>LWM</sub> = <input type="text" id="qlwm" readonly style="width:100px"> l/min
@@ -121,7 +121,7 @@
 		</div>
 		<div class="span5">
 			<div style="margin-left:-20px;">Brandabschnittsfl&auml;che A<sub>B</sub> = <input type="text" id="ab_in" style="width:100px"> m²</div>
-			<div id="label_ab"><span class="label label-warning">Bitte geben Sie A<sub>B</sub> ein...</span></div>
+			<div id="label_ab"><span class="label label-important">Bitte geben Sie A<sub>B</sub> ein...</span></div>
 			<div style="margin-top:100px; padding-left:20px; font-weight:bold">Resultierende A<sub>B</sub> = <input type="text" readonly id="ab_out" style="width:100px"> m²</div>
 		</div>
 	</div>
@@ -140,7 +140,7 @@
 		</div>
 		<div class="span4" style="padding-left:20px">
 			h<sub>L</sub> = <input type="text" id="hl" style="width:100px"> m
-			<div style="display:none" id="label_hl"><span class="label label-warning">Bitte geben Sie h<sub>L</sub> >2,5m (!!) ein...</span><br><br></div>
+			<div style="display:none" id="label_hl"><span class="label label-important">Bitte geben Sie h<sub>L</sub> >2,5m (!!) ein...</span><br><br></div>
 		</div>
 	</div>
 
@@ -182,7 +182,7 @@
 		</div>
 		<div class="span5">
 			<!-- Button to print form -->
-			<a href="#" role="button" id="btnPrint" class="btn btn-info"><i class="icon-print icon-white"></i> Drucken</a>
+			<a href="#" role="button" id="btnPrint" class="btn btn-primary"><i class="icon-print icon-white"></i> Drucken</a>
 			&nbsp;&nbsp;&nbsp;
 			<!-- Button to trigger modal -->
 			<a href="#saveModal" role="button" id="btnDialog" class="btn btn-success" data-toggle="modal"><i class="icon-ok icon-white"></i> Berechnung speichern</a>
