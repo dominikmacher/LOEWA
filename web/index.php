@@ -86,7 +86,7 @@
     <div id="content" class="container">
       <?php 
         if (file_exists($site)) {
-          include ($site);
+          include($site);
         }
       ?>
     </div>

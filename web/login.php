@@ -1,3 +1,9 @@
+<?php
+	include("users.php");
+	
+?>
+
+
 <div class="row">
 	<div class="span4 offset4">
 
