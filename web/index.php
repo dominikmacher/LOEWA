@@ -56,7 +56,7 @@
                 //echo '<li><a href="?id=4"><i class="icon-user"></i> Logout</a></li>';
               ?>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['LOEWA_USER']; ?><b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['LOEWA_NAME']; ?><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="?id=6"><i class="icon-wrench"></i> Passwort ändern</a></li>
                     <li><a href="?id=5"><i class="icon-off"></i> Abmelden</a></li>
