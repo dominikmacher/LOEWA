@@ -46,6 +46,18 @@ function fillTfl(obj, tfls, les) {
 	});
 }
 
+function fillAdditionalTfl(obj, tfls, anzahlTfl, minimumLe) {
+	obj.empty();
+	$.each(tfls, function(tfl, le) {
+		if (le >= minimumLe) {
+			var tflLes = anzahlTfl + " TFL, Typ " + tfl;
+			obj.append(
+	    		$('<option></option>').val(tflLes).html(tflLes)
+			);
+		}
+	});
+}
+
 function fillDh(obj, dhs) {
 	obj.empty();
 	for (i=0; i<dhAusfuehrungsform.length; i++) {
@@ -73,31 +85,52 @@ function evalBrandklassen() {
 
 function calculateTfl() {
 	var selectedBrandklassen = evalBrandklassen();
-	var ab = parseInt($('#ab_in').val());
 
-	var leNormal4 = Math.ceil(ab/200)*4;
-	$('#le_normal_4').val(leNormal4);
+	if ($('#ab_in').val() != "") {
+		var ab = parseInt($('#ab_in').val());
 
-	var tflDhNormal = Math.ceil(ab/500);
-	$('#tfl_dh_normal').val(tflDhNormal);
+		var leNormal4 = Math.ceil(ab/200)*4;
+		$('#le_normal_4').val(leNormal4);
 
-	var leHoch12 = Math.ceil(ab/200)*12;
-	$('#le_hoch_12').val(leHoch12);
+		var tflDhNormal = Math.ceil(ab/500);
+		$('#tfl_dh_normal').val(tflDhNormal);
 
-	var leHoch4 = Math.ceil(ab/200)*4;
-	$('#le_hoch_4').val(leHoch4);
+		var leHoch12 = Math.ceil(ab/200)*12;
+		$('#le_hoch_12').val(leHoch12);
 
-	var dhHoch = Math.ceil(ab/500);
-	$('#dh_hoch_4').val(dhHoch);
-	
-	if (selectedBrandklassen) {	
-		fillTfl($('#tfl_normal_4'), tflZuordnung[selectedBrandklassen], leNormal4);
-		fillTfl($('#tfl_normal'), tflZuordnung[selectedBrandklassen], tflDhNormal);
-		fillDh($('#dh_normal'), tflDhNormal);
+		var leHoch4 = Math.ceil(ab/200)*4;
+		$('#le_hoch_4').val(leHoch4);
 
-		fillTfl($('#tfl_hoch_12'), tflZuordnung[selectedBrandklassen], leHoch12);
-		fillTfl($('#tfl_hoch_4'), tflZuordnung[selectedBrandklassen], leHoch4);
-		fillDh($('#dh_hoch'), dhHoch);
+		var dhHoch = Math.ceil(ab/500);
+		$('#dh_hoch_4').val(dhHoch);
+		
+		if (selectedBrandklassen) {	
+			fillTfl($('#tfl_normal_4'), tflZuordnung[selectedBrandklassen], leNormal4);
+			fillTfl($('#tfl_normal'), tflZuordnung[selectedBrandklassen], tflDhNormal);
+			fillDh($('#dh_normal'), tflDhNormal);
+
+			fillTfl($('#tfl_hoch_12'), tflZuordnung[selectedBrandklassen], leHoch12);
+			fillTfl($('#tfl_hoch_4'), tflZuordnung[selectedBrandklassen], leHoch4);
+			fillDh($('#dh_hoch'), dhHoch);
+		}
+	}
+}
+
+function calculateLaborTfl() {
+	if ($('#labors').val() != "") {
+		fillAdditionalTfl($('#tfl_labor'), tflZuordnung["BC"], $('#labors').val(), 3);
+	}
+	else {
+		$('#tfl_labor').empty();
+	}
+}
+
+function calculateZapfsauleTfl() {
+	if ($('#zapfsaulen').val() != "") {
+		fillAdditionalTfl($('#tfl_zapfsaule'), tflZuordnung["BC"], $('#zapfsaulen').val(), 6);
+	}
+	else {
+		$('#tfl_zapfsaule').empty();
 	}
 }
 
@@ -107,6 +140,10 @@ $(document).ready(function() {
 		calculateTfl();
 	});
 	$('#brandklasse_bc').change(function() {
+		$('#accordion2').hide();
+		if ($(this).is(':checked')) {
+			$('#accordion2').show();
+		}
 		calculateTfl();
 	});
 
@@ -116,6 +153,14 @@ $(document).ready(function() {
 			$('#label_ab').hide();
 			calculateTfl();
 		}
+	});
+
+	$('#labors').keyup(function() {
+		calculateLaborTfl();
+	});
+
+	$('#zapfsaulen').keyup(function() {
+		calculateZapfsauleTfl();
 	});
 
 });
@@ -151,18 +196,18 @@ $(document).ready(function() {
 	</div>
 </div>
 
-<div class="accordion" id="accordion2">
+<div class="accordion" id="accordion1">
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Normale Brandgef&auml;hrdung</a>
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">Normale Brandgef&auml;hrdung</a>
 		</div>
 		<div id="collapseOne" class="accordion-body collapse in">
 			<div class="accordion-inner">
-			4 LE / 200m2 => <input type="text" readonly id="le_normal_4" style="width:100px"> LE; d.s. <select id="tfl_normal_4"></select>
+			4 LE / 200m² => <input type="text" readonly id="le_normal_4" style="width:100px"> LE; d.s. <select id="tfl_normal_4"></select>
 			<br />
 			oder
 			<br />
-			(1 TFL + 1 DH) / 500m2 => <input type="text" readonly id="tfl_dh_normal" style="width:100px"> (TFL und DH); 
+			(1 TFL + 1 DH) / 500m² => <input type="text" readonly id="tfl_dh_normal" style="width:100px"> (TFL und DH); 
 			d.s. <select id="tfl_normal"></select> und <select id="dh_normal"></select>
 			<small>(WH Ausführungen siehe TRVB F 128)</small>
 			</div>
@@ -170,21 +215,35 @@ $(document).ready(function() {
 	</div>
 	<div class="accordion-group">
 		<div class="accordion-heading" style="font-weight:bold">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Hohe Brandgef&auml;hrdung</a>
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Hohe Brandgef&auml;hrdung</a>
 		</div>
 		<div id="collapseTwo" class="accordion-body collapse">
 			<div class="accordion-inner">
-			12 LE / 200m2 => <input type="text" readonly id="le_hoch_12" style="width:100px"> LE; d.s. <select id="tfl_hoch_12"></select>
+			12 LE / 200m² => <input type="text" readonly id="le_hoch_12" style="width:100px"> LE; d.s. <select id="tfl_hoch_12"></select>
 			<br />
 			oder
 			<br />
-			4 LE / 200m2 => <input type="text" readonly id="le_hoch_4" style="width:100px"> LE; d.s. <select id="tfl_hoch_4"></select>
+			4 LE / 200m² => <input type="text" readonly id="le_hoch_4" style="width:100px"> LE; d.s. <select id="tfl_hoch_4"></select>
 			<br />
 			und
 			<br />
-			1 DH / 500m2 => <input type="text" readonly id="dh_hoch_4" style="width:100px"> DH; 
+			1 DH / 500m² => <input type="text" readonly id="dh_hoch_4" style="width:100px"> DH; 
 			d.s. <select id="dh_hoch"></select>
 			<small>(WH Ausführungen siehe TRVB F 128)</small>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="accordion" id="accordion2" style="display:none">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Zus&auml;tzlich (f&uuml;r Brandklasse B)</a>
+		</div>
+		<div id="collapseNot" class="accordion-body collapse in">
+			<div class="accordion-inner">
+			Anzahl Labor-Räume > 20m² = <input type="text" id="labors" style="width:100px"> => je Labor > 20m²: 1 TFL (3 LE); d.s. <select id="tfl_labor"></select>
+			<br />
+			Anzahl Zapfs&auml;uleninseln = <input type="text" id="zapfsaulen" style="width:100px"> => je Zapfs&auml;uleninsel: 1 TFL (6 LE); d.s. <select id="tfl_zapfsaule"></select>
 			</div>
 		</div>
 	</div>
