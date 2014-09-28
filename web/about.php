@@ -12,5 +12,5 @@ Aktuelle Features:
 
 Entwickler:
 <ul>
-    <li>Dominik Macher, LM: <br>Gruppenkommandant + Sachbearbeiter EDV+VB <br>(Feuerwehr Karlstetten)</li>
+    <li>Dominik Macher, FT: <br>Zugtruppkommandant + Sachbearbeiter EDV+VB <br>(Feuerwehr Karlstetten)</li>
 </ul>
