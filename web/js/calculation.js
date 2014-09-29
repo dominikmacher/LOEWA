@@ -216,10 +216,10 @@ function roundResult(v) {
 function calcResult() {
 	if ($('#ab_out').val()!="" && $('#qlwm').val()!="" && $('#qlwg').val()!="") {
 		
-		qlwi = parseFloat($("input[name='options_brandbelastung']:checked").val());
-		qlwm = parseFloat($('#qlwm').val());
-		var ab = parseFloat($('#ab_out').val());
-
+		qlwi = parseFloat($("input[name='options_brandbelastung']:checked").val().replace(/,/g, "."));
+		qlwm = parseFloat($('#qlwm').val().replace(/,/g, "."));
+		var ab = parseFloat($('#ab_out').val().replace(/,/g, "."));
+		
 		qlwo = (qlwi + qlwm);
 
 		hl = $('#hl').val();
@@ -234,7 +234,7 @@ function calcResult() {
 		$('#qlwo').val(roundResult(qlwo));
 
 		// Bereitstellung:
-		qlwg = parseFloat($('#qlwg').val());
+		qlwg = parseFloat($('#qlwg').val().replace(/,/g, "."));
 		lw = qlwo - qlwg;
 		if (lw<0)
 			lw=0;
