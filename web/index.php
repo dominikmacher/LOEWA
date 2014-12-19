@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $sites = array("loewa.php", "list.php", "about.php", "loeschhilfe.php", "login.php", "logout.php", "settings.php");
+  $sites = array("loewa.php", "list.php", "about.php", "loeschhilfe.php", "login.php", "logout.php", "settings.php", "hydranten.php");
   $site = $sites[0];
   if (isset($_GET['id'])) {
     $site = $sites[$_GET['id']];
@@ -75,6 +75,7 @@
               echo '<li '.($site=="loewa.php" ? 'class="active"' : "").'><a href="?id=0">L&ouml;Wa</a></li>';
               echo '<li '.($site=="loeschhilfe.php" ? 'class="active"' : "").'><a href="?id=3">L&ouml;schhilfe</a></li>';
               echo '<li '.($site=="list.php" ? 'class="active"' : "").'><a href="?id=1">Abgespeicherte Objekte</a></li>';
+              echo '<li '.($site=="hydranten.php" ? 'class="active"' : "").'><a href="?id=7">Digitaler Hydrantenplan</a></li>';
               echo '<li '.($site=="about.php" ? 'class="active"' : "").'><a href="?id=2">Info</a></li>';
             ?>
             </ul>
