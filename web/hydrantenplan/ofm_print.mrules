@@ -1,0 +1,685 @@
+// Maperitive rendering ruleset for OpenFireMap Printing 
+// by OpenStreetMap User: GB_Germany_Vie
+// http://maperitive.net
+
+// Based on the Hiking Map by Igor Brejc and the feuerwehr style by Oliver Brakhan
+// Released under the Creative Commons Attribution-ShareAlike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/)
+// No Icons used for this rules.
+
+// History:
+// --------
+// 2014-03-15: First Version created by OpenStreetMap User: GB_Germany_Vie
+//		- No Bitmap Icons, changes of the original OpenFireMap style was necessary
+//		- Adaptation to display detailed information for big maps
+// 2014-03-24
+//		- Color changes and new areas
+// 2014-04-10
+//		- Font size changes for zoom level 19
+// 2014-04-16
+//		- add hospital
+// 2014-05-11
+//		- Error correction for Fire_water_tank and water_tank:volume textes
+
+// feature selectors = welche Daten sollen genutzt werden
+
+features
+	place : node[place OR landuse=farmyard] area[place OR landuse=farmyard]
+	railway station : railway=station
+
+// features-points
+
+	points
+		peak : natural=peak
+		power tower : @isOneOf(power, tower, pole, station, sub_station)
+
+// features-points-areas
+	points, areas
+		housenumber : [addr:housenumber]
+
+// Eigentliche Anpassung an die Feuerwehr	
+		Fire_Station : amenity=fire_station
+		Fire_Hydrant_pillar : emergency = fire_hydrant and fire_hydrant:type=pillar
+		Fire_Hydrant_underground : emergency = fire_hydrant and fire_hydrant:type=underground
+		Fire_Hydrant_wall : emergency = fire_hydrant and fire_hydrant:type=wall
+		Fire_Hydrant_unknown : (emergency = fire_hydrant and fire_hydrant:type=unknown) or (emergency = fire_hydrant and NOT fire_hydrant:type)
+		Fire_Hydrant_tank : emergency = fire_hydrant and fire_hydrant:type=water_tank
+		Fire_water_tank : emergency = water_tank 
+		Fire_Hydrant_pond : (emergency = fire_hydrant and fire_hydrant:type=pond) or emergency = suction_point or emergency = fire_water_pond 
+		// Zusätzliche Kommentare
+		Fire_Hydrant_name : emergency = fire_hydrant and fire_hydrant:name
+		Fire_Hydrant_diameter : emergency = fire_hydrant and fire_hydrant:diameter
+		Fire_Hydrant_position : emergency = fire_hydrant and fire_hydrant:position 
+		Fire_Hydrant_ref : emergency = fire_hydrant and fire_hydrant:ref
+		Fire_Hydrant_count : emergency = fire_hydrant and fire_hydrant:count
+		Emergency_access_point : highway = emergency_access_point
+        //Emergency_access_point_ref : highway = emergency_access_point and emergency_access_point:ref
+
+
+// features-lines
+
+	lines
+		aerialway : aerialway
+		contour major : contour[@isMulti(elevation, 50)]
+		contour minor : contour[@isMulti(elevation, 10) and not @isMulti(elevation, 50)]
+		foot path major : @isOneOf(highway,pedestrian,footway,steps) 
+		foot path minor : highway=path
+		road major : @isOneOf(highway,motorway,motorway_link,trunk,trunk_link,primary,primary_link,secondary,secondary_link,tertiary)
+		road minor : @isOneOf(highway,residential,unclassified,living_street,construction,service)
+		track major: highway=track and (@isOneOf(tracktype,grade1,grade2) OR NOT tracktype)
+		track minor: highway=track and (@isOneOf(tracktype,grade3,grade4,grade5))
+		railway : railway=rail
+		power line : @isOneOf(power, line, minor_line)
+		stream : waterway=stream or waterway=river
+		waterpipe 65 : man_made=pipeline and type=water and diameter=65
+		waterpipe 80 : man_made=pipeline and type=water and diameter=80
+		waterpipe 100: man_made=pipeline and type=water and diameter=100
+		waterpipe 125: man_made=pipeline and type=water and diameter=125
+		waterpipe 150: man_made=pipeline and type=water and diameter=150
+		highway motorway : highway=motorway OR (highway=construction AND construction=motorway)
+		highway motorway link : highway=motorway_link OR (highway=construction AND construction=motorway_link)
+		highway trunk : highway=trunk OR (highway=construction AND construction=trunk)
+		highway trunk link: highway=trunk_link OR (highway=construction AND construction=trunk_link)
+		highway primary link : highway=primary_link OR (highway=construction AND construction=primary_link)
+		highway primary : highway=primary OR (highway=construction AND construction=primary)
+		highway secondary : highway=secondary OR (highway=construction AND construction=secondary)
+		highway tertiary : highway=tertiary OR (highway=construction AND construction=tertiary)
+		highway unclassified : highway=unclassified OR (highway=construction AND construction=unclassified)
+		highway residential : highway=residential OR (highway=construction AND construction=residential)
+		highway living_street : highway=living_street OR (highway=construction AND construction=living_street)
+		highway construction : highway=construction
+		highway service : highway=service
+		highway pedestrian : highway=pedestrian
+		highway track : highway=track
+		highway footway : highway=footway
+		highway cycleway : highway=cycleway
+		highway path : highway=path
+		highway access private : access=private AND highway
+		highway access destination : access=destination AND highway
+		highway steps : highway=steps
+
+// features-areas
+
+	areas
+		//building : building=yes
+		residential : landuse=residential
+		forest : landuse=forest OR natural=wood OR leisure=park OR landuse=cemetery OR landuse=recreation_ground
+		water : natural=water OR waterway=riverbank OR landuse=reservoir OR landuse=basin
+		water_reservoir : man_made=reservoir_covered
+		pumping_station : man_made=water_works
+		nature_reserve : boundary=national_park OR boundary=protected_area OR leisure=nature_reserve
+		military : landuse=military OR military=danger_area OR military=barracks
+		industry : landuse=industrial OR landuse=commercial
+		field : leisure=pitch
+		parking : amenity=parking
+		farm : landuse=farmyard
+		church : amenity=place_of_worship AND (religion=christian OR religion=Christian)
+		hospital : amenity=hospital
+
+
+// properties = beschreiben der Standards
+
+properties
+	curved : true
+	font-weight : bold
+	font-family : Verdana
+	text-max-width : 7
+	text-halo-width : 30%
+	text-halo-opacity : 0.75
+	map-background-color : #fffefd
+	text-align-horizontal : center
+	text-align-vertical : center
+	font-stretch : 0.9
+	map.rendering.lflp.min-buffer-space : 5
+	map.rendering.lflp.max-allowed-corner-angle : 40
+
+
+// rules-points  = festlegen der Eigenschaften für festgelegte Kriterien
+
+rules
+
+//	Feuerwehrhaus
+//	target: Fire_station
+//		define
+//			min-zoom : 10
+//			shape : custom
+//			shape-def : p:yellow;pw:6;f:none;m:-7,4;l:-7,-9,7,-9,7,4;m:10,5;l:-0,10;l:-10,5;p:red;pw:4;f:none;m:-7,4;l:-7,-9,7,-9,7,4;m:10,5;l:-0,10;l:-10,5
+//			shape-size : 10:8;13:12;15:16;18:22;19:40
+//		draw : shape
+//		define
+//			min-zoom : 14
+//			text : "Einsatzzentrale"
+//			font-size : 8:8;16:10;18:20
+//			text-color : red 
+//			text-align-vertical : near
+//			text-offset-vertical : 80%
+//		draw : text		
+
+//	Überflurhyfrant
+	target: Fire_Hydrant_pillar
+		define
+			min-zoom : 12
+			shape : custom
+			//shape-def : p:red;pw:4;f:none;m:0,-10;a:10,10,0,10;m:0,10;a:10,10,0,-10;m:0,10;l:0,20;m:-12,15;l:0,20,12,15
+			//shape-size : 12:2;15:22;18:40;19:45
+			fill-color : red
+			line-style : none
+			shape : circle
+			shape-size : 12:1;15:5;19:13
+		draw : shape
+		define
+			min-zoom : 16
+			text : [[fire_hydrant:diameter]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		//draw : text	
+
+//	Unterflurhydrant		
+	target: Fire_Hydrant_underground
+		define
+			fill-opacity : 0
+			line-style : solid
+			line-width : 5:1;9:1.3;19:5
+			line-color : red
+			min-zoom : 12
+			shape : circle
+			shape-size : 12:1;15:5;19:13
+		draw : shape
+		define
+			min-zoom : 16
+			text : [[fire_hydrant:diameter]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+//	Wandhydrant		
+	target: Fire_Hydrant_wall
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:red;pw:4;f:none;m:0,-10;a:10,10,0,10;m:0,10;a:10,10,0,-10;m:13,-13;l:13,13
+			shape-size : 12:2;15:22;18:40;19:45
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[fire_hydrant:diameter]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+
+//	unbekannter Hydrant		
+	target: Fire_Hydrant_unknown
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:red;pw:4;f:none;m:0,-10;a:10,10,0,10;m:0,10;a:10,10,0,-10;p:blue;pw:2;f:none;m:10,14;l:16,18,20,14,12,8,16,2,20,6;m:16,-2;l:16,-6
+			shape-size : 12:2;15:22;18:40;19:45
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[fire_hydrant:diameter]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+			
+//	Wasserbehälter 		
+	target: Fire_water_tank
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:red;pw:4;f:none;m:-8,6;l:-8,-8,8,-8,8,6;m:-10,10;l:10,10;m:-8,4;l:-2,-4,2,4,8,-2
+			shape-size : 12:2;15:18;18:28;19:36
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[water_tank:volume]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+		
+//	Wasserbehälter 		
+	target: Fire_Hydrant_tank
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:red;pw:4;f:none;m:-8,6;l:-8,-8,8,-8,8,6;m:-10,10;l:10,10;m:-8,4;l:-2,-4,2,4,8,-2
+			shape-size : 12:2;15:18;18:28;19:36
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[water_tank:volume]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+//	Wasserentnahmestelle 		
+	target: Fire_Hydrant_pond
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:red;pw:4;f:none;m:-8,6;l:-8,-8,8,-8,8,6;m:-8,4;l:-2,-4,2,4,8,-2
+			shape-size : 12:2;15:15;18:22;19:32
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[water_tank:volume]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+//	Emergency_access_point Sammelstellen im Wald 		
+	target: Emergency_access_point
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:green;pw:2;f:green;m:-10,-10;l:-10,10,10,10,10,-10;z;p:white;pw:3;f:none;m:8,0;l:-8,0;m:0,8;l:0,-8
+			shape-size : 12:2;15:14;18:20
+		draw : shape
+		define
+			min-zoom : 15
+			text : [[ref]]
+			font-size : 8:8;16:12;18:20
+			text-color : red black 20%
+			text-offset-vertical : 16
+		draw : text		
+
+//	ab hier andere Kartendaten 
+
+	target : peak
+		define
+			fill-color : black
+			line-style : none
+			min-zoom : 11
+			shape : circle
+			shape-size : 11:3;15:8
+		draw : shape
+		define
+			font-family : Cambria
+			font-style : italic
+			font-weight : bold
+			font-size : 13:10;15:20
+			min-zoom : 13
+			text : @if(name, name @if(ele, "\n(" ele ")"), ele)
+			text-align-vertical : near
+			text-color : black
+			text-max-width : 15
+			text-offset-vertical : 50%
+			text-halo-width : 30%
+			text-halo-opacity : 0.75
+		draw : text
+
+	target: hospital
+		define
+			fill-opacity : 0
+			line-style : solid
+			line-color : #FF0DFF
+			min-zoom : 11
+			shape : circle
+			shape-size : 11:3;15:9
+		draw : shape
+		define
+			min-zoom : 12
+			shape : custom
+			shape-def : p:#FF0DFF;pw:3;f:none;m:6,0;l:-6,0;m:0,6;l:0,-6
+			shape-size : 11:2;15:11
+		draw : shape
+		define
+			font-family : Arial
+			font-weight : bold
+			font-size : 14:10;20:20
+			min-zoom : 15
+			text-align-vertical : near
+			text-offset-vertical : 100%
+		draw : text
+
+	target : railway station
+		define
+			min-zoom : 11
+			shape : square
+			shape-size : 11:0;13:4;15:20
+			fill-color : white
+		draw : shape
+		define
+			min-zoom : 14
+			font-size : 12
+			text-color : #3914AF
+			text-offset-vertical : -150%
+		draw : text
+
+	target : power tower
+		define
+			min-zoom : 15.5
+			shape : square
+			shape-size : 16:7;20:12
+			fill-color : black
+			line-style : none
+		for : power=pole
+			define
+				shape-size:16:3;20:4
+		draw : shape
+
+
+// rules-lines
+	target : waterpipe *
+		if : waterpipe 65
+			define
+				line-color : #9a789f
+				text-color : #9a789f black 20%
+		elseif : waterpipe 80
+			define
+				line-color : #0000ff
+				text-color : #0000ff black 20%
+		elseif : waterpipe 100
+			define
+				line-color : #08b09a
+				text-color : #08b09a black 20%
+		elseif : waterpipe 125
+			define
+				line-color : #ab450d
+				text-color : #ab450d black 20%
+		else //waterpipe 150
+			define
+				line-color : #0e6414
+				text-color : #0e6414 black 20%
+		define
+			curved : false
+			line-width : 3
+		draw : line
+		define
+			min-zoom : 15
+			text : [[pipe_diameter]]
+			font-size : 8:8;15:8;16:12;18:20
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		//draw : text	
+
+	target : power line
+		define
+			curved : false
+			min-zoom : 15.5
+			line-width : 1
+		draw : line
+
+	target : railway
+		define
+			line-width : 9:1;10:2;13:2;14:3
+		draw : line
+
+
+	target : road *
+		if : road major
+			define
+				min-zoom : 10
+				line-color : #FFFFFF
+		else
+			define
+				min-zoom : 14
+				line-color : white
+		define
+			font-size : 8:8;16:12;18:20
+			line-width : 10:0.5;13:1;14:1;16:2
+			border-style : solid
+			border-color : black
+			border-width : 80%
+			border-opacity : 0.95
+		draw : line
+		//draw : text
+		define
+			min-zoom : 11
+			font-family : Tahoma
+			text-align-horizontal : center
+			text-align-vertical : center
+			text : ref
+			font-size : 12
+			text-color : black
+			text-halo-width : 0
+			shape : custom
+			shape-def : p:#FFFFFF;pw:5;f:#FFFFFF;m:-10,-10;l:10,-10;a:10,10,10,10;l:-10,10;a:10,10,-10,-10;z;p:#000000;pw:2;m:-10,-10;l:10,-10;a:10,10,10,10;l:-10,10;a:10,10,-10,-10;z
+			shield-padding-left : 5
+			shield-padding-right : 5
+			shield-padding-top : 7
+			shield-padding-bottom : 7
+			shield-resize-mode : free
+		draw : shield
+
+	target : road minor
+		define
+			min-zoom : 10
+			max-zoom : 14
+			line-color : black
+			line-width : 1
+			border-style : none
+		draw : line
+		define
+			min-zoom : 18
+			max-zoom : 20
+			font-size : 14
+		//draw : text
+
+	target : track major
+		define
+			font-size : 8:8;16:12;18:20
+			min-zoom : 14
+			line-color : white
+			line-width : 13.9:1;14:2;16:3
+			border-style : solid
+			border-color : black
+			border-width : 60%
+			border-opacity : 0.8
+		for : tracktype=grade1 or not tracktype
+			define
+				line-style : solid
+		for : tracktype=grade2
+			define
+				line-style: solid
+				line-color : gray
+				border-width : 20%
+		draw : line
+		define
+			min-zoom : 12
+			max-zoom : 14
+			line-color : black
+			line-width : 1
+			border-style : none
+		draw : line
+
+	target : track minor
+		define
+			font-size : 8:8;16:12;18:20
+			min-zoom : 14
+			line-color :black
+			line-width : 13.9:1;14:2;16:3
+			line-style : dash
+			border-style : solid
+			border-color : white
+			border-width : 100%
+			border-opacity : 0.3
+		for : tracktype=grade1 or not tracktype
+			define
+				line-style : solid
+		for : tracktype=grade2
+			define
+				line-style: dashlong
+		for : tracktype=grade3
+			define
+				line-style: dash
+		for : tracktype=grade4
+			define
+				line-style: dashdot
+		for : tracktype=grade5
+			define
+				line-style: dashdotdot
+		for : tunnel=yes
+			define
+				border-style : dot
+		for : bridge=yes
+			define
+				border-color : #000
+		draw : line
+
+	target : foot path*
+		define
+			line-color : gray
+			line-style : dash
+			border-style : none
+		if : *major
+			define
+				min-zoom : 14.5
+				line-width : 14.5:1;15.5:2
+		else
+			define
+				line-style : dashdotdot
+				min-zoom : 16
+				line-width : 1.5
+		draw : line
+
+
+	
+
+
+
+
+// rules-areas
+
+	target : building
+		define
+			fill-color : #212121 white 40%
+			line-style : none
+			min-zoom : 12
+		draw : fill
+
+	target : nature_reserve
+		define
+			fill-color : #8DC56C black 10%
+			fill-hatch : nwse
+			fill-hatch-color : white
+			fill-hatch-opacity : 0
+			line-style : none
+			font-size : 3:3;12:12
+			text-color : green
+			font-weight : normal
+			text : @up(name)
+		draw : fill
+		define
+			min-zoom : 13.5
+		draw : text
+
+	target : military
+		define
+			fill-color : red
+			fill-hatch : swne
+			fill-hatch-color : white
+			fill-hatch-opacity : 0
+			line-style : none
+		draw : fill
+
+	target : parking
+		define
+			fill-color : #FFEE84 white 40%
+			line-style : none
+		draw : fill
+
+
+	target : farm
+		define
+			fill-color : #BF8830 white 60%
+			line-style : none
+		draw : fill
+
+	target : field
+		define
+			fill-color : #8DC56C white 40%
+			line-style : none
+		draw : fill
+
+	target : industry
+		define
+			fill-color : #FFD7D7 white 30%
+			line-style : none
+		draw : fill
+
+	target : water
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #78C1C1 white 10%
+		draw : fill
+		define
+			min-zoom : 15
+			font-size : 15:10;17:17
+			font-style : italic
+			font-weight : bold
+			text-color : #78C1C1 black 10%
+		draw : text
+
+	target : water_reservoir
+		define
+			fill-color : blue white 10%
+			line-style : none
+			shape : square
+			shape-size : 12:15;15:20;19:25
+		draw : shape
+		define
+			min-zoom : 14
+			font-style : italic
+			font-weight : bold
+			font-size : 8:8;16:12;18:20
+			text-color : blue black 10%
+			text : name "\n(" [[capacity]]"m3)"
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+	target : pumping_station
+		define
+			fill-color : #45b7b8 white 10%
+			line-style : none
+			shape : square
+			shape-size : 12:15;15:20;19:25
+		draw : shape
+		define
+			min-zoom : 14
+			font-style : italic
+			font-weight : bold
+			font-size : 8:8;16:12;18:20
+			text-color : #45b7b8 black 10%
+			text : "Pumpstation\n" [[operator]]
+			text-align-vertical : near
+			text-offset-vertical : 80%
+		draw : text
+
+	target : forest
+		define
+			line-style : none
+			line-width : 1
+			min-zoom : 9
+			fill-color : #8DC56C white 60%
+		draw : fill
+		define
+			min-zoom : 17
+		draw : text
+
+	target : residential
+		define
+			line-style : none
+			line-width : 1
+			fill-color : #DCDCDC white 30%
+		draw : fill
+		define
+			min-zoom : 17
+			font-size : 17:10;19:18
+		draw : text
