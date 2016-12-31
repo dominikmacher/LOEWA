@@ -1,4 +1,5 @@
 <script type="text/javascript" src="js/calculation.js"></script>
+<script type="text/javascript" src="js/calculation_lib.js"></script>
 
 <?php 
 	include("anhang.php"); 

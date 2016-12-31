@@ -1,28 +1,10 @@
-var qlwg, qlwi, qlwm, nutzung, ab_in, qlwo, hl, lw, lw_vorrat, brandflaeche;
 var json_data = "";
 var nutzungsfaktoren;
 
+
+
 $(document).ready(function() {
 	
-	/*$('#bootstrap_test').typeahead({
-		source: function(query, process) {
-			nutzungen = [];
-			$.each(nutzungsfaktoren, function (i, factor) {
-				nutzungen.push(factor[0]);
-			});
-		    process(nutzungen);
-		},
-		items: 15,
-		matcher: function (item) {
-		    if (item.toLowerCase().indexOf(this.query.trim().toLowerCase()) != -1) {
-		        return true;
-		    }
-		},
-		updater: function(val) {
-			console.log(e);
-		}
-	});*/
-
 	$('#btnSave').hide();
 	$('#btnDialog').hide();
 	calcResult();
@@ -56,7 +38,7 @@ $(document).ready(function() {
 
 		$('#hl').val(json_data.hl);
 		
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 		calcResult();
 
 		$('#bearbeiter').val(json_data.bearbeiter);
@@ -68,6 +50,19 @@ $(document).ready(function() {
 	}
 
 	$('#btnSave').click(function() {
+		var qlwg = $('#qlwg').val(), 
+		qlwi = $('#qlwi').val(), 
+		qlwm = $('#qlwm').val(), 
+		nutzung = $('#nutzung').val(), 
+		ab_in = $('#ab_in').val(), 
+		hl = $('#hl').val(), 
+		brandflaeche = [document.loewa_form.options_brandflaeche1.checked,
+			document.loewa_form.options_brandflaeche2.checked,
+			document.loewa_form.options_brandflaeche3.checked,
+			document.loewa_form.options_brandflaeche4.checked,
+			document.loewa_form.options_brandflaeche5.checked];
+
+
 		$.post("save.php", 
 			{ objekt: $('#objekt').val(), brandabschnitt: $('#brandabschnitt').val(), qlwg: qlwg, qlwi: qlwi, nutzung: nutzung, ab_in: ab_in, hl: hl, brandflaeche: brandflaeche, datum: $('#datum').val(), bearbeiter: $('#bearbeiter').val() },
 			function(data) {
@@ -137,118 +132,35 @@ $(document).ready(function() {
 	});
 
 	$('#options_brandbelastung1').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandbelastung2').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandbelastung3').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 
 
 	$('#options_brandflaeche1').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandflaeche2').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandflaeche3').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandflaeche4').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#options_brandflaeche5').click(function() {
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 	$('#ab_in').keyup(function() {
 		$(this).val($(this).val().replace(/,/,"."));
-		calcBrandflaeche();
+		calcBrandflaecheWOP();
 	});
 
 });
 
-function calcBrandflaeche() {
-	// Prinzipiell in => out value:
-	ab_in = $('#ab_in').val();
-	$('#ab_out').val(ab_in);
-
-	brandflaeche = new Array(
-		document.loewa_form.options_brandflaeche1.checked,
-		document.loewa_form.options_brandflaeche2.checked,
-		document.loewa_form.options_brandflaeche3.checked,
-		document.loewa_form.options_brandflaeche4.checked,
-		document.loewa_form.options_brandflaeche5.checked
-	);
-
-	// Check checkboxes:
-	var lowestAb=0;
-	if (document.loewa_form.options_brandflaeche5.checked) {
-		lowestAb = 750;
-	}
-	else if (document.loewa_form.options_brandflaeche4.checked) {
-		lowestAb = 1200;
-	}
-	else if (document.loewa_form.options_brandflaeche3.checked) {
-		lowestAb = 2000;
-	}
-	
-	if (lowestAb!=0) {
-		if (lowestAb < $('#ab_out').val() || $('#ab_out').val()==0 || $('#ab_out').val()=="") {
-			$('#ab_out').val(lowestAb);
-		}
-	}
-
-	if ($('#ab_out').val()!="") {
-		$('#label_ab').hide();
-	}
-	else {
-		$('#label_ab').show();
-	}
-	calcResult();
-}
-
-function roundResult(v) {
-	return Math.round(v * 100) / 100;
-}
-
-function calcResult() {
-	if ($('#ab_out').val()!="" && $('#qlwm').val()!="" && $('#qlwg').val()!="") {
-		
-		qlwi = parseFloat($("input[name='options_brandbelastung']:checked").val().replace(/,/g, "."));
-		qlwm = parseFloat($('#qlwm').val().replace(/,/g, "."));
-		var ab = parseFloat($('#ab_out').val().replace(/,/g, "."));
-		
-		qlwo = (qlwi + qlwm);
-
-		hl = $('#hl').val();
-		if (hl !="" && hl>2.5) {
-			// extended formula:
-			qlwo *= (ab + 4*(hl-2.5) * Math.sqrt(ab));
-		}
-		else {
-			qlwo *= ab;
-		}
-		
-		$('#qlwo').val(roundResult(qlwo));
-
-		// Bereitstellung:
-		qlwg = parseFloat($('#qlwg').val().replace(/,/g, "."));
-		lw = qlwo - qlwg;
-		if (lw<0)
-			lw=0;
-
-		$('#lw_bereitstellung').val(roundResult(lw));
-		lw_vorrat = lw*90/1000;
-		$('#lw_vorrat').val(roundResult(lw_vorrat));
-
-		$('#btnDialog').show();
-	}
-	else {
-		$('#qlwo').val('');
-		$('#lw_bereitstellung').val('');
-		$('#lw_vorrat').val('');
-		$('#btnDialog').hide();
-	}
-}
