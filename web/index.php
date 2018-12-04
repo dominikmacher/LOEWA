@@ -3,13 +3,13 @@
 
   $sites = array(
 	0=>array('loewa.php','L&ouml;Wa',true),
-	1=>array('loeschhilfe.php','L&ouml;schhilfe',true),
+	1=>array('loeschhilfe.php','L&ouml;schhilfe',false),
 	2=>array('list.php','Abgespeicherte Objekte',true),
 	3=>array('hydranten.php','Digitaler Hydrantenplan',true),
 	4=>array('about.php','Info',true),
-	5=>array('logout.php','Logout',false),
-	6=>array('settings.php','Einstellungen',false),
-	7=>array('login.php','Login',false)
+	5=>array('login.php','Login',(isset($_SESSION['LOEWA_USER']) ? false : true)),
+	//7=>array('settings.php','Einstellungen',(isset($_SESSION['LOEWA_USER']) ? true : false)),
+	7=>array('logout.php','Logout',(isset($_SESSION['LOEWA_USER']) ? true : false))
   );
  
   $topic = $sites[0][0];
@@ -27,7 +27,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="http://www.feuerwehr-karlstetten.org//cms/templates/feuerwehr-karlstetten/favicon.ico">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,6 +35,7 @@
 	body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 	.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 	.fa-anchor,.fa-coffee {font-size:200px}
+	.not-allowed { cursor: not-allowed; }
 	</style>
 	<link href="css/print.css" rel="stylesheet" media="print">
     <link href="css/print-preview.css" rel="stylesheet" type="text/css" media="screen">
@@ -47,16 +48,14 @@
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-button w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
 	
-	<!-- <span class="brand" href="#"><img src="img/logo.png" style="height:19px;margin-top:-5px" alt="FFK Logo">&nbsp;&nbsp;VB-Berechnungs-App</span>
-	-->
-	
-	<!--<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>-->
+	<img src="img/logo.png" class="w3-bar-item" style="padding:5px; height:50px;" alt="FF Logo" />
+	<span class="w3-bar-item w3-padding-large w3-text-black" style="padding-left:10px !important;">VB-Berechnungs-App</span>
 	<?
 	foreach ($sites as $id => $site) {
 		if ($site[2]) {
-			echo '<a href="?id='.$id.'" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white ';
+			echo '<a href="?id='.$id.'" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large w3-hover-white ';
 			if ($site[0]==$topic) {
 				echo 'w3-white';
 			}
@@ -67,11 +66,18 @@
   </div>
 
   <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  <div id="navDemo" class="w3-bar-block w3-light-grey w3-hide w3-hide-large w3-large">
+    <?
+	foreach ($sites as $id => $site) {
+		if ($site[2]) {
+			echo '<a href="?id='.$id.'" class="w3-bar-item w3-button w3-padding-large ';
+			if ($site[0]==$topic) {
+				echo 'w3-white strong';
+			}
+			echo '">'.$site[1].'</a>';
+		}
+	}
+	?>
   </div>
 </div>
 
@@ -92,19 +98,12 @@
   </div>
 </div>
 
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-</div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding">  
+  <div class="w3-xlarge">
+    <a href="http://www.feuerwehr-karlstetten.org" target="_blank"><i class="fa fa-home w3-hover-opacity"></i></a>
+    <a href="http://github.com/dominikmacher/LOEWA" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
  </div>
 </footer>
 

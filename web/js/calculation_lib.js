@@ -16,6 +16,7 @@ function calcBrandflaecheWOP() {
 		document.loewa_form.options_brandflaeche5.checked
 	);
 	$('#ab_out').val(calcBrandflaeche($('#ab_in').val(), brandflaeche));
+	calcResult();
 }
 
 /**
@@ -111,7 +112,7 @@ function calcLw(qLwg, qLwo) {
 }
 
 
-function calcResult(ab, qLwm, qLwg, hL) {
+function calcResult() {
 	ab = $('#ab_out').val();
 	qLwm = $('#qlwm').val();
 	qLwg = $('#qlwg').val();

@@ -67,22 +67,34 @@ else if (isset($_GET['username'])) {
 </script>
 
 <div class="row">
-	<div class="span4 offset4">
 
-		<form role="form" class="form-signin" action="javascript: signIn()">
-			<h2 class="form-signin-heading">Login</h2>
-			<div id="error" style="display:none">
-				<span class="label label-warning">Fehler: Falscher Benutzername oder Passwort!</span>
-				<br /><br />
-			</div>
-			<div id="success" style="display:none">
-				<span class="label label-success">Login erfolgreich!</span>
-				<br /><br />
-			</div>
-			<input id="username" type="email" autofocus="" required="" placeholder="Email address" class="form-control">
-			<input id="password" type="password" required="" placeholder="Password" class="form-control">
-			<br />
-			<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+	<form role="form" class="form-signin" action="javascript: signIn()">
+		<h1>Login</h1>
+			
+		<div class="w3-center"><br>
+			<img src="img/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+		</div>
+
+		<div id="error" style="display:none">
+			<span class="label label-warning">Fehler: Falscher Benutzername oder Passwort!</span>
+			<br /><br />
+		</div>
+		<div id="success" style="display:none">
+			<span class="label label-success">Login erfolgreich!</span>
+			<br /><br />
+		</div>
+		
+		<div class="w3-section">
+			<label><b>Username</b></label>
+			<input class="w3-input w3-border w3-margin-bottom form-control" type="text" placeholder="Email address" id="username" name="username" required>
+			
+			<label><b>Password</b></label>
+			<input class="w3-input w3-border form-control" type="password" placeholder="Password" id="password" name="password" required>
+			
+			<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Anmelden</button>
+		</div>
+				
+			
 		</form>
 
 	</div>

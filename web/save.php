@@ -2,7 +2,8 @@
 	session_start();
 
 	$data = json_encode($_POST);
-	$dir = "data/".$_SESSION['LOEWA_USER']."/";
+	
+	$dir = $_SERVER['CONTEXT_DOCUMENT_ROOT']."/data/".$_SESSION['LOEWA_USER']."/";
 	if (!is_dir($dir)) {
 		mkdir($dir);
 	}
@@ -27,5 +28,6 @@
     }
     fclose($handle);	
 
-	echo "saved";
+	echo "SUCCESS";
+	exit;
 ?>

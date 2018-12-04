@@ -2,6 +2,7 @@
 
 <p>Version: 2.1</p>
 
+<br>
 Aktuelle Features:
 <ul>
     <li>Berechnen von Löschwasser-Objektschutz (inkl. Hinterlegung der spezifischen Löschwasserrate je Brandbelastung)</li>
@@ -10,7 +11,9 @@ Aktuelle Features:
     <li>Druck von Objekt-Berechnungen in speziellem auf A4-zugeschnittenes Druckformat</li>
 </ul>
 
-Entwickler:
+<br>
+Entwickler: Dominik Macher, FT
 <ul>
-    <li>Dominik Macher, FT: <br>Zugtruppkommandant + Sachbearbeiter EDV+VB <br>(Feuerwehr Karlstetten)</li>
+    <li>Zugskommandant, Sachbearbeiter VB (FF Karlstetten)</li>
+	<li>Abschnittssachbearbeiter VB (St.Pölten-West)</li>
 </ul>

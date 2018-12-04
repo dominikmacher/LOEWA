@@ -2,10 +2,48 @@ var json_data = "";
 var nutzungsfaktoren;
 
 
+function saveCalc() {
+	if ($('#loewa_form').checkValidity()) {
+		var qlwg = $('#qlwg').val(), 
+		qlwi = $('#qlwi').val(), 
+		qlwm = $('#qlwm').val(), 
+		nutzung = $('#nutzung').val(), 
+		ab_in = $('#ab_in').val(), 
+		hl = $('#hl').val(), 
+		brandflaeche = [document.loewa_form.options_brandflaeche1.checked,
+			document.loewa_form.options_brandflaeche2.checked,
+			document.loewa_form.options_brandflaeche3.checked,
+			document.loewa_form.options_brandflaeche4.checked,
+			document.loewa_form.options_brandflaeche5.checked];
+
+
+		$.post("save.php", 
+			{ objekt: $('#objekt').val(), brandabschnitt: $('#brandabschnitt').val(), qlwg: qlwg, qlwi: qlwi, nutzung: nutzung, ab_in: ab_in, hl: hl, brandflaeche: brandflaeche, datum: $('#datum').val(), bearbeiter: $('#bearbeiter').val() },
+			function(data) {
+				if (data=="SUCCESS") {
+					$('#btnClose').click();
+					window.location.href="?id=0";
+				}
+			}
+		);
+	}
+	return false;
+}
 
 $(document).ready(function() {
 	
-	$('#btnSave').hide();
+	$('input[type=text][readonly]').hover(function() {
+		$( this ).addClass( "not-allowed" );
+	}, function() {
+		$( this ).removeClass( "not-allowed" );
+	});
+	
+	$('#btnDialog').click(function() {
+		$("#saveModal").show();
+		return false;
+	});
+	
+	
 	$('#btnDialog').hide();
 	calcResult();
 
@@ -49,30 +87,10 @@ $(document).ready(function() {
 		$('#btnSave').show();
 	}
 
+	
+	
 	$('#btnSave').click(function() {
-		var qlwg = $('#qlwg').val(), 
-		qlwi = $('#qlwi').val(), 
-		qlwm = $('#qlwm').val(), 
-		nutzung = $('#nutzung').val(), 
-		ab_in = $('#ab_in').val(), 
-		hl = $('#hl').val(), 
-		brandflaeche = [document.loewa_form.options_brandflaeche1.checked,
-			document.loewa_form.options_brandflaeche2.checked,
-			document.loewa_form.options_brandflaeche3.checked,
-			document.loewa_form.options_brandflaeche4.checked,
-			document.loewa_form.options_brandflaeche5.checked];
-
-
-		$.post("save.php", 
-			{ objekt: $('#objekt').val(), brandabschnitt: $('#brandabschnitt').val(), qlwg: qlwg, qlwi: qlwi, nutzung: nutzung, ab_in: ab_in, hl: hl, brandflaeche: brandflaeche, datum: $('#datum').val(), bearbeiter: $('#bearbeiter').val() },
-			function(data) {
-				if (data=="saved") {
-					$('#btnClose').click();
-					window.location.href="?id=1";
-				}
-			}
-		);
-		return false;
+		saveCalc();
 	});
 
 	var printCallBack = function() {
@@ -83,14 +101,6 @@ $(document).ready(function() {
 	}
 	$('#btnPrint').printPreview(printCallBack);
 
-	$('#objekt').keyup(function() {
-		if ($(this).val()=="") {
-			$('#btnSave').hide();
-		}
-		else {
-			$('#btnSave').show();
-		}
-	});
 
 	$('#qlwg').keyup(function() {
 		$(this).val($(this).val().replace(/,/,"."));
@@ -106,13 +116,18 @@ $(document).ready(function() {
 
 	$('#hl').keyup(function() {
 		$(this).val($(this).val().replace(/,/,"."));
+		calcResult();
+	});
+	$('#hl').blur(function() {
+		$(this).val($(this).val().replace(/,/,"."));
 
 		if ($(this).val()=="") {
-			$('#label_hl').hide();
+			$(this).val("0");
+			//$('#label_hl').hide();
 		}
-		else if ($(this).val()<=2.5) {
+		/*else if ($(this).val()<=2.5) {
 			$('#label_hl').show();
-		}
+		}*/
 		calcResult();
 	});
 
