@@ -127,41 +127,43 @@ echo '</table></div>';
 		<strong>Resultierende A<sub>B</sub> = <input type="text" readonly id="ab_out" style="width:100px"> m²</strong>
 	</div>
 </div>
-<div class="w3-row">
-	<input class="w3-check" type="checkbox" id="options_brandflaeche1" name="options_brandflaeche1">
-	<label>Keine Brandschutzeinrichtung vorhanden</label>
-	<br/>
-	<input class="w3-check" type="checkbox" id="options_brandflaeche2" name="options_brandflaeche2">
-	<label>L&ouml;Wa-Grundschutz vorhanden</label>
-	<br/>
-	<input class="w3-check" type="checkbox" id="options_brandflaeche3" name="options_brandflaeche3">
-	<label>Automatische Brandmeldeanlage gem&auml;ß TRVB S 123 mit automatischer Alarmweiterleitung gem&auml;ß TRVB S 114</label>
-	<br/>
-	<input class="w3-check" type="checkbox" id="options_brandflaeche4" name="options_brandflaeche4">
-	<label>Betriebsfeuerwehr mit st&auml;ndigem Bereitschaftsdienst S2 gem&auml;ß TRVB 100 und automatischer Brandmeldeanlage gem&auml;ß TRVB S 123</label>
-	<br/>
-	<input class="w3-check" type="checkbox" id="options_brandflaeche5" name="options_brandflaeche5">
-	<label>Automatische L&ouml;schanlage mit automatischer Alarmweiterleitung gem&auml;ß TRVB S 114</label>
 
+<div class="w3-responsive">
+	<table class="w3-table w3-striped">
+		<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="" id="options_brandflaeche1" checked></td>
+			<td>Keine Brandschutzeinrichtung vorhanden</td>
+		</tr>
+		<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="2000" id="options_brandflaeche2"></td>
+			<td>Brandmeldeanlage (TRVB 123 S) mit Alarmweiterleitung (TRVB 114 S)</td>
+		</tr>
+		<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="1200" id="options_brandflaeche3"></td>
+			<td>Betriebsfeuerwehr (K3.2 gem. OIB-RL) und Brandmeldeanlage (TRVB 123 S) mit Alarmweiterleitung zur Betriebsfeuerwehr</td>
+		</tr>
+		<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="750" id="options_brandflaeche3"></td>
+			<td>Automatische Feuerlöschanlage (TRVB 127 S) oder Sauerstoffreduktionsanlage (TRVB S 155) jeweils mit Alarmweiterleitung (TRVB 114 S)</td>
+		</tr>
+	</table>
 </div>
+
 	
-<br/>
+<br/><br/>
 <h3>2.4. L&ouml;schwasserrate f&uuml;r den Objektschutz</h3>
 <div class="w3-row">
 	<div class="w3-twothird">
 		Eingabe nur relevant, wenn Lagerh&ouml;he h<sub>L</sub> von Lager oder Lagerungen > 2,5m:
 		<br>
-		h<sub>L</sub> = <input type="text" value="0" id="hl" style="width:100px"> m
+		h<sub>L</sub> = <input type="number" value="" min="2.5" id="hl" style="width:100px"> m
 	</div>
 	<div class="w3-third" style="font-weight:bold">
 		Q<sub>LWO</sub> = <input type="text" id="qlwo" readonly style="width:100px"> l/min
 	</div>
 </div>
 
-<div class="w3-row">
-	<div class="w3-third offset8" 
-	</div>
-</div>
+
 
 
 
