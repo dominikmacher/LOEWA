@@ -2,7 +2,7 @@
 <script type="text/javascript" src="js/calculation_lib.js"></script>
 
 <?php 
-	include("anhang.php"); 
+	/*include("anhang.php"); 
 	ksort($nutzungsfaktoren, SORT_REGULAR);
 	echo '<script type="text/javascript"> nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
 
@@ -14,12 +14,15 @@
 			echo '</script>';
 			fclose($handle);
 		}
-	}
+	}*/
 ?>
+<div class="w3-container">
 
 <h1>Objektbezogene L&ouml;schwasserbedarfsermittlung <small>(gem&auml;ß TRVB F 137)</small></h1>
 
- <div class="w3-panel w3-border w3-light-grey w3-round-large">
+<br><br>
+
+<div class="w3-panel w3-border w3-light-grey w3-round-large">
   <p>Info: Die Berechnung erfolgt automatisch mit Eingabe der jeweiligen Werte in die vorgesehenen Eingabefelder.</p>
 </div> 
 
@@ -164,31 +167,7 @@
 </div>
      
 	 
-<!-- Modal Dialog -->
-<div id="saveModal" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-  
-		<div class="w3-center">
-			<span id="btnClose" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-			<h2>Berechnung abspeichern</h2>
-		</div>
-		
-		<div class="w3-container">
-			<div class="w3-section">
-				<label><b>Objekt: </b></label>
-				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Objekt" id="objekt" name="objekt" required>
-				<label><b>Brandabschnitt: </b></label>
-				<input class="w3-input w3-border" type="text" id="brandabschnitt" placeholder="Brandabschnitt" name="brandabschnitt">
+</form>
 
-				<button class="w3-button w3-block w3-green w3-section w3-padding" id="btnSave" type="submit" href="#">Speichern</button>
-			</div>
-		</div>
-	</div>
+
 </div>
-
-</form>
-
-
-<form id="print_form" name="print_form" method="post" action="print.php">
-	<input type="hidden" name="printContent" id="printContent" value="" />
-</form>

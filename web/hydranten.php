@@ -1,3 +1,5 @@
+<div class="w3-container">
+
 <style type="text/css">
 div {
     text-align: justify;
@@ -5,7 +7,7 @@ div {
 } 
 </style>
 
-<h1>Anleitung zum digitalen Hydrantenplan <small>(Artikel)</small></h1>
+<h1>Anleitung zum digitalen Hydrantenplan</h1>
 
 <br><br>
 <p>Dieser Artikel beschreibt den Grund für einen eigenen (digitalisierten) Hydrantenplan und bietet anschließend eine Anleitung zur Erstellung eines solchen Planes.</p>
@@ -26,10 +28,10 @@ div {
 	</div>
 </div>
 <br>
-<b>2. Digitaler Hydrantenplan</b>
+<h3>2. Digitaler Hydrantenplan</h3>
 <div class="w3-row">
 	Immer mehr Feuerwehren neigen dazu, ihre LöWa-Pläne zu digitalisieren. Dies bietet mehrere Vorteile, vor allem im Hinblick auf die Nutzung von digitalen Medien wie Tablet, Handy oder Infoscreens zum Anzeigen von Einsatzdetails. Weiters gibt es bereits Pilotprojekte, die die GeoDaten sämtlicher LöWa-Objekte im Einsatzfall heranziehen und somit abhängig von der Adresse des Brandobjekts automatisch das vorhandene LöWa berechnen und die verfügbaren LöWa-Entnahmestellen anzeigen oder sogar ausdrucken. Somit kann sich der ausrückende Fahrzeugkommandant oder Einsatzleiter bereits bei Anfahrt vorbereiten.<br />
-	Es gibt mittlerweile Programme und auch mobile Apps wie <a href="www.wasserkarte.info" target="_blank">www.wasserkarte.info</a> und <a href="www.hydrantenmap.de" target="_blank">www.hydrantenmap.de</a> die es Feuerwehren ermöglichen Hydranten digital zu erfassen. Leider bietet keine dieser Software-Applikationen die Möglichkeit auch das so wichtige Wasserleitungsnetz zu erfassen.<br />
+	Es gibt mittlerweile Programme und auch mobile Apps wie <a href="http://www.wasserkarte.info" target="_blank">www.wasserkarte.info</a> und <a href="http://www.hydrantenmap.de" target="_blank">www.hydrantenmap.de</a> die es Feuerwehren ermöglichen Hydranten digital zu erfassen. Leider bietet keine dieser Software-Applikationen die Möglichkeit auch das so wichtige Wasserleitungsnetz zu erfassen.<br />
 	Wir haben daher an einer innovativen Version gearbeitet, bei der OpenStreetMap.org als Basis für sämtliche GeoDaten verwendet wird. OpenStreetMap ist ein freies Projekt, das für jeden frei nutzbar und somit auch gratis ist. 
 </div>
 
@@ -40,8 +42,8 @@ Wie kommt man nun zu einem eigenen digitalen Hydrantenplan?
 <div class="w3-row">
 	<h3>1. Hydranten in OpenFireMap eintragen</h3>
 	<div class="w3-twothird" style="padding-right:20px">
-		In OpenStreetMap (kurz OSM) sind die einzelnen Objekte (z.B. Häuser, Straßen, Gewässer, Hydranten) eigenen Layern zugeordnet. Diese Layer dienen der Anzeige und können einzeln für die jeweilige Ansicht aktiviert oder deaktiviert werden. Auf <a href="www.openstreetmap.org" target="_blank">www.openstreetmap.org</a> ist der Hydranten-Layer standardmäßig deaktiviert, da dieser für den Standardnutzer (z.B. für Straßen-Navigation) nicht benötigt wird. Darum gibt es eine eigene Seite <a href="www.openfiremap.org" target="_blank">www.openfiremap.org</a>, wo die Layer zum Anzeigen von Feuerwehrhäusern und Hydranten aktiviert sind – es wird jedoch die gleiche Basis, also OSM verwendet. Seit kurzen gibt es auch die Seite <a href="www.osmhydrant.org/de" target="_blank">www.osmhydrant.org/de</a>, die sogar Bereichsgrenzen der Hydranten anzeigt.<br />
-		Jedermann darf neue Objekte in OSM eintragen oder Objekte verändern. Dazu muss man sich lediglich auf <a href="www.openstreetmap.org" target="_blank">www.openstreetmap.org</a> einen Benutzeraccount anlegen. Es gibt jedoch auch OSM-Administratoren, die jegliche Änderungen genehmigen (müssen), dies dient lediglich der Sicherheit der Daten.<br />
+		In OpenStreetMap (kurz OSM) sind die einzelnen Objekte (z.B. Häuser, Straßen, Gewässer, Hydranten) eigenen Layern zugeordnet. Diese Layer dienen der Anzeige und können einzeln für die jeweilige Ansicht aktiviert oder deaktiviert werden. Auf <a href="http://www.openstreetmap.org" target="_blank">www.openstreetmap.org</a> ist der Hydranten-Layer standardmäßig deaktiviert, da dieser für den Standardnutzer (z.B. für Straßen-Navigation) nicht benötigt wird. Darum gibt es eine eigene Seite <a href="http://www.openfiremap.org" target="_blank">www.openfiremap.org</a>, wo die Layer zum Anzeigen von Feuerwehrhäusern und Hydranten aktiviert sind – es wird jedoch die gleiche Basis, also OSM verwendet. Seit kurzen gibt es auch die Seite <a href="http://www.osmhydrant.org/de" target="_blank">www.osmhydrant.org/de</a>, die sogar Bereichsgrenzen der Hydranten anzeigt.<br />
+		Jedermann darf neue Objekte in OSM eintragen oder Objekte verändern. Dazu muss man sich lediglich auf <a href="http://www.openstreetmap.org" target="_blank">www.openstreetmap.org</a> einen Benutzeraccount anlegen. Es gibt jedoch auch OSM-Administratoren, die jegliche Änderungen genehmigen (müssen), dies dient lediglich der Sicherheit der Daten.<br />
 		Zum Bearbeiten von OSM-Kartenmaterial empfiehlt sich das Programm JOSM (<a href="https://josm.openstreetmap.de" target="_blank">josm.openstreetmap.de</a>), das lokal am PC installiert wird. Nach erfolgreicher Installation muss nach Start der Applikation ein Kartenbereich ausgewählt werden. Dieser Kartenbereich wird zwischenzeitlich am PC downgeloaded und kann somit editiert werden, nachdem die Änderungen abgeschlossen sind wird dieser Bereich wieder in OSM hochgeladen. Zum Hochladen ist eine Authentifizierung mittels Benutzeraccount + Angabe einer kurzen Textbeschreibung über die getätigten Änderungen zwecks Nachvollziehbarkeit notwendig.<br />
 	</div>
 	<div class="w3-third">
@@ -78,7 +80,7 @@ Wie kommt man nun zu einem eigenen digitalen Hydrantenplan?
 		Die Attribute wurden hier bezogen: <a href="http://wiki.openstreetmap.org/wiki/Proposed_features/water_network" target="_blank">wiki.openstreetmap.org/wiki/Proposed_features/water_network</a>
 	<br>
 	<br>
-		<img src="hydrantenplan/josm_waterpipes.png" />
+		<img src="hydrantenplan/josm_waterpipes.png" style="max-width:500px; width:100%" />
 		<p>Abbildung 3: Leitungsnetz mittels JOSM einzeichnen</p>
 </div>
 
@@ -101,4 +103,6 @@ Wie kommt man nun zu einem eigenen digitalen Hydrantenplan?
 <div class="w3-row">
 <h2><u>Fazit</u></h2>
 <p>Hydrantenpläne können von Maperitive auch im SVG-Format exportiert werden. Dieses Vektorgrafik-Format ermöglicht es die Pläne in jeglichen Größenformaten auszudrucken bzw. abzuspeichern, ohne dabei an Bildqualität zu verlieren. </p>
+</div>
+
 </div>

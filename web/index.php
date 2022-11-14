@@ -1,123 +1,132 @@
 <?php
-  session_start();
-
   $sites = array(
-	0=>array('loewa.php','L&ouml;Wa',true),
-	1=>array('loeschhilfe.php','L&ouml;schhilfe',false),
-	2=>array('list.php','Abgespeicherte Objekte',true),
-	3=>array('hydranten.php','Digitaler Hydrantenplan',true),
-	4=>array('about.php','Info',true),
-	5=>array('login.php','Login',(isset($_SESSION['LOEWA_USER']) ? false : true)),
-	//7=>array('settings.php','Einstellungen',(isset($_SESSION['LOEWA_USER']) ? true : false)),
-	7=>array('logout.php','Logout',(isset($_SESSION['LOEWA_USER']) ? true : false))
+    0=>array('loewa.php','L&ouml;Wa Berechnung',true),
+    1=>array('loeschhilfe.php','L&ouml;schhilfe',false),
+    2=>array('hydranten.php','Digitaler Hydrantenplan',true),
+    3=>array('about.php','Info',true)
   );
  
   $topic = $sites[0][0];
   if (isset($_GET['id'])) {
     $topic = $sites[$_GET['id']][0];
   }
-  
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Freiwillige Feuerwehr Karlstetten</title>
-    <link type="image/x-icon" rel="shortcut icon" href="http://www.feuerwehr-karlstetten.org//cms/templates/feuerwehr-karlstetten/favicon.ico">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style>
-	body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-	.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-	.fa-anchor,.fa-coffee {font-size:200px}
-	.not-allowed { cursor: not-allowed; }
-	</style>
-	<link href="css/print.css" rel="stylesheet" media="print">
-    <link href="css/print-preview.css" rel="stylesheet" type="text/css" media="screen">
-	
-	<script src="js/jquery-1.7.1.min.js"></script>
-	<script src="js/jquery.print-preview.js" type="text/javascript" charset="utf-8"></script>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>140 Jahre Freiwillige Feuerwehr Karlstetten</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128">
+  <link rel="apple-touch-icon" href="favicon-128x128.png"/>
+  <link rel="stylesheet" href="css/w3.css" type="text/css" media="screen" />
+  <link rel='stylesheet' href='css/simplelightbox.css' type='text/css'>
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/simplelightbox.js"></script>
+  <script src="js/navigation.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  <!--
+    var baseUrl = "http://www.feuerwehr-karlstetten.at";
+  //-->
+  </script> 
 </head>
+
 <body>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-	
-	<img src="img/logo.png" class="w3-bar-item" style="padding:5px; height:50px;" alt="FF Logo" />
-	<span class="w3-bar-item w3-padding-large w3-text-black" style="padding-left:10px !important;">VB-Berechnungs-App</span>
-	<?
-	foreach ($sites as $id => $site) {
-		if ($site[2]) {
-			echo '<a href="?id='.$id.'" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large w3-hover-white ';
-			if ($site[0]==$topic) {
-				echo 'w3-white';
-			}
-			echo '">'.$site[1].'</a>';
-		}
-	}
-	?>
+<div>
+  <!-- Sidebar Navigation -->
+  <nav class="w3-sidebar w3-top w3-right " style="width: 250px;" id="SidebarNavigation">
+    <div class="w3-container w3-display-container w3-padding-16 HomeLink" title="Zur Hauptseite">
+      <img class="w3-image" src="logo.png" alt="Logo" width="120px">
+      <div class="" style="font-weight:700; padding-top: 15px; font-size: 18px !important; padding-bottom:15px; border-bottom: 1px solid #ccc">VB Berechnungs-App</div>
+    </div>
+    <div class="w3-bar-block w3-large" style="padding-top:0px; ">
+      <?
+      foreach ($sites as $id => $site) {
+        if ($site[2]) {
+          echo '<a target="" href="index.php?id='.$id.'" title="'.$site[1].'" class="w3-bar-item w3-button ';
+          echo '">'.$site[1].'</a>';
+        }
+      }
+      ?>
+    </div>
+    
+  </nav>
+
+  <div id="NavigationBarSticky" class="w3-card-4 w3-top">
+    <div class="w3-bar sub-bar w3-large " style="padding-top: 0px; height: 100%;">
+      <div class="w3-bar-content">
+        <div class="w3-right">
+          <div class="w3-bar w3-hide-medium w3-hide-small">
+            <?
+            foreach ($sites as $id => $site) {
+              if ($site[2]) {
+                echo '<a target="" href="index.php?id='.$id.'" title="'.$site[1].'" class="w3-bar-item w3-button w3-mobile ';
+                if ($site[0]==$topic) {
+                  echo 'w3-strong';
+                }
+                echo '">'.$site[1].'</a>';
+              }
+            }
+            ?>
+          </div>
+          <div class="w3-bar w3-hide-large" style="padding-right: 5px; ">
+            <a href="#" class="MobileNavButton w3-bar-item w3-hover-text-white w3-button w3-mobile" style="height: 43px; width: 43px;"><!--Menü --><i class="fa fa-bars"></i></a>
+          </div>
+        </div>
+        <div class="w3-left" style="padding-top: 4px; padding-left: 15px; padding-bottom:0px; display: inline-block;">
+          <div class="w3-left HomeLink" title="Startseite">
+            <div class="w3-left" style="padding-right: 10px">
+                <img class="w3-image" src="logo.png" style="height:34px" alt="Logo">
+            </div>
+            <div class="w3-right w3-large" style="padding-top: 3px; font-weight: 700"><a target="_blank" href="http://feuerwehr-karlstetten.org" title="Zur Hauptseite" style="text-decoration:none">VB Berechnungs-App</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-light-grey w3-hide w3-hide-large w3-large">
-    <?
-	foreach ($sites as $id => $site) {
-		if ($site[2]) {
-			echo '<a href="?id='.$id.'" class="w3-bar-item w3-button w3-padding-large ';
-			if ($site[0]==$topic) {
-				echo 'w3-white strong';
-			}
-			echo '">'.$site[1].'</a>';
-		}
-	}
-	?>
-  </div>
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay" style="cursor:pointer" title="close side menu" id="SiteOverlay"></div>
+
 </div>
 
-<!-- Header -->
-<!--<header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">START PAGE</h1>
-  <p class="w3-xlarge">Template by w3.css</p>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
-</header>-->
+<div class="w3-content">
 
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-  <?php 
-	if (file_exists($topic)) {
-	  include($topic);
-	}
-  ?>
-  </div>
+<?php
+  if (file_exists($topic)) {
+    include($topic);
+  }
+?>
+
 </div>
 
+<script type="text/javascript" src="js/effects.js"></script>
 
-<!-- Footer -->
-<footer class="w3-container w3-black w3-center w3-opacity w3-padding">  
-  <div class="w3-xlarge">
-    <a href="http://www.feuerwehr-karlstetten.org" target="_blank"><i class="fa fa-home w3-hover-opacity"></i></a>
-    <a href="http://github.com/dominikmacher/LOEWA" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
- </div>
+<footer class="w3-container w3-padding-16 w3-center w3-xlarge w3-text-white" style="margin-top:100px; background-color: #333"> 
+  <p class="w3-medium">
+    <a href="http://www.feuerwehr-karlstetten.org" class="w3-hover-text-grey w3-text-white">Hauptseite</a>
+    &nbsp;&nbsp; | 
+    &nbsp;&nbsp;
+    <a href="http://feuerwehr-karlstetten.org/cms/impressum" class="w3-hover-text-grey w3-text-white">Impressum</a>
+    &nbsp;&nbsp; |  
+    &nbsp;&nbsp;
+    Finde uns auch hier: 
+    &nbsp;&nbsp;
+    <a href="https://www.facebook.com/ffkarlstetten" title="Facebook" target="_blank" class="w3-large w3-hover-text-grey w3-text-white"><i class="fa fa-facebook w3-hover-opacity"></i></a>
+    &nbsp;&nbsp;
+  <a href="https://www.youtube.com/channel/UC5WQdBqssNLan9ryVytKQuQ" title="YouTube" target="_blank" class="w3-large w3-hover-text-grey w3-text-white"><i class="fa fa-youtube w3-hover-opacity"></i></a>  
+  &nbsp;&nbsp; |  
+  &nbsp;&nbsp; Copyright © Freiwillige Feuerwehr Karlstetten 2021</p>
+  
 </footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
 </body>
 </html>

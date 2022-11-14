@@ -1,0 +1,151 @@
+/* catamaran-regular - latin */
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/catamaran-v17-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/catamaran-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/catamaran-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/catamaran-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/catamaran-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/catamaran-v17-latin-regular.svg#Catamaran') format('svg'); /* Legacy iOS */
+}
+
+/* catamaran-700 - latin */
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/catamaran-v17-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/catamaran-v17-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/catamaran-v17-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/catamaran-v17-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/catamaran-v17-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/catamaran-v17-latin-700.svg#Catamaran') format('svg'); /* Legacy iOS */
+}
+
+
+
+/* *,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}*/
+
+body {
+  /*font: normal 16px/1.5 "Open Sans", sans-serif;*/
+  font-family: 'Catamaran', serif !important;
+  background: #fff;
+  /*color: #fff;*/
+  overflow-x: hidden;
+}  
+
+h1 {
+  font-size: 34px;
+  font-family: 'Catamaran', serif !important;
+  color: #933;
+  word-wrap: break-word;
+}
+h2 {
+  font-size: 25px;
+  font-style: normal;
+  font-weight:bold;
+  word-wrap: break-word;
+}
+h3 {
+  font-size: 17px;
+  font-style: normal;
+  font-weight:bold;
+  word-wrap: break-word;
+}
+
+div.w3-content {
+    position: relative;
+    padding-top: 70px;
+}
+div.w3-content, div.w3-bar-content {
+    max-width: 1300px !important;
+    max-width: 1100px;
+}
+
+small {
+  font-size: 60%;
+}
+
+/*.sl-wrapper .sl-image .sl-caption {
+  bottom: -15px !important; 
+  background: rgba(0, 0, 0, 1.0) !important;
+}*/
+
+
+
+
+
+/******************* NAVIGATION ********************/
+
+.w3-bar, .w3-dropdown-hover .w3-button.sub-nav {
+  background-color: #7c0000 !important;
+  color: #fff;
+}
+.w3-dropdown-hover:hover .w3-button.sub-nav {
+  background-color: inherit !important;
+}
+
+#NavigationBarFloating, #NavigationBarSticky {
+  z-index: 99;
+}
+#NavigationBarFloating div, #NavigationBarSticky {
+  /*padding-bottom:2px;*/
+}
+#NavigationBarFloating.w3-card-4, #NavigationBarSticky {
+  /*background: rgba(255, 255, 255, 0.9) !important;*/
+  background: rgba(255, 255, 255) !important;
+}
+#NavigationBarFloating {
+  width:100%; 
+  position: absolute; 
+  top: 0px; 
+  margin: 0;
+}
+#NavigationBarSticky {
+  /*padding-top:0px;*/
+  height:43px;
+}
+
+#NavigationBarFloating div div.sub-bar, #NavigationBarSticky div.sub-bar {
+  /*max-width:1100px; 
+  margin:auto;*/
+}
+
+#NavigationBarFloating div div.sub-bar {
+  /*height: 135px; */
+}
+
+#NavigationBarSticky div.sub-bar {
+  /*padding-top: 5px;*/
+}
+
+#NavigationBarSticky a.w3-bar-item {
+  padding: 8px 12px;
+}
+
+a.MobileNavButton {
+  /*padding: 4px 16px 2px 16px !important;
+  font-size: 20px;*/
+}
+
+#SidebarNavigation {
+  z-index: 99999 !important;
+}
+
+.w3-bar.w3-button, .w3-bar-item.w3-button {
+    /*font-weight: 600 !important;*/
+}
+
+div.HomeLink {
+  cursor: pointer;
+}
