@@ -31,36 +31,69 @@
 
 <form name="loewa_form" id="loewa_form" onsubmit="saveCalc()">
 
-<!-- Grundschutz -->
-<h2>1. Tats&auml;chlich vorhandener L&ouml;schwasserbedarf f&uuml;r den Grundschutz</h2>
-<div class="w3-row">
-	<div class="w3-twothird" style="padding-right:10px;">
-		L&ouml;schwasserrate Q<sub>LWG</sub> f&uuml;r eine Lieferdauer von 90min gem&auml;ß beiliegender Angabe des kommunalen Wasserversorgungsunternehmes bzw. der Erhebung entsprechend der &Ouml;BF-Rl. VB01:
-	</div>
-	<div class="w3-third" style="font-weight:bold">
-		Q<sub>LWG</sub> = <input id="qlwg" type="text" style="width:100px"> l/min
-		<div id="label_lwg" class="w3-panel w3-pale-red w3-leftbar w3-border-red" style="font-weight: 400;">Bitte geben Sie Q<sub>LWG</sub> an...</div> 
-	</div>
-</div>
-
-<br class="vertical_sep"><br class="vertical_sep">
-
 <!-- Objektschutz -->
-<h2>2. L&ouml;schwasserbedarf f&uuml;r den Objektschutz</h2>
-<h3>2.1. Spezifische L&ouml;schwasserrate f&uuml;r die immobile Brandbelastung</h3>
+<h2>1. L&ouml;schwasserbedarf f&uuml;r den Objektschutz</h2>
 
-<div class="w3-row">
-	<input class="w3-radio" type="radio" name="options_brandbelastung" value="0" id="options_brandbelastung1" checked>
-	<label>W&auml;nde und Decke nichtbrennbar (q<sub>LWi</sub> = 0 l/(m²min))</label>
-	<br/>
-	<input class="w3-radio" type="radio" name="options_brandbelastung" value="0.5" id="options_brandbelastung2" >
-	<label>W&auml;nde oder Decke nichtbrennbar (q<sub>LWi</sub> = 0,5 l/(m²min))</label>
-	<br/>
-	<input class="w3-radio" type="radio" name="options_brandbelastung" value="1" id="options_brandbelastung3" >
-	<label>W&auml;nde und Decke brennbar (q<sub>LWi</sub> = 1,0 l/(m²min))</label>
-</div>
 
-<br/>	
+<h3>1.1. Spezifische L&ouml;schwasserrate f&uuml;r die immobile Brandbelastung</h3>
+
+<?php
+$waende = array(
+	array("Wände einschließlich Dämmung Klasse A2","0",0),
+	array("Wände aus Sandwichpaneelen Gesamtsystem Klasse B","0,25",0.25),
+	array("Wände aus Baustoffen der Klasse A2 mit Dämmstoffen der Klasse D","0,25",0.25),
+	array("Wände aus Holz u. Holzwerkstoffen d. Klasse D mit Dämmstoffen Klasse A2","0,35",0.35),
+	array("Wände aus Sandwichpaneelen Gesamtsystem Klasse C","0,35",0.35),
+	array("Außenwandbekleidungen sowie die Komponenten bzw. Gesamtsystem von nichttragenden Außenwänden der Klasse C","0,35",0.35),
+	array("Wände aus Holz und Holzwerkstoffen der Klasse D","0,50",0.5)
+);
+
+echo '<b>Wände:</b>';
+$i=0;
+echo '<div class="w3-responsive"><table class="w3-table w3-striped">';
+foreach ($waende as $wand) {
+	echo '<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandbelastung_wand" value="'.$wand[2].'" id="options_brandbelastung_wand'.$i.'" '.($i==0 ? 'checked' : '').'></td>
+			<td>'.$wand[0].'</td>
+			<td style="width: 200px">(q<sub>LWi-Wand</sub> = '.$wand[1].' l/(m²min))</td>
+		 </tr>';
+	$i++;
+}
+echo '</table></div>';
+
+
+$decken = array(
+	array("Decken/Dächer und Dämmung Klasse A2","0",0),
+	array("Decken/Dächer aus Sandwichpaneelen Gesamtsystem Klasse B","0,25",0.25),
+	array("Dächer, welche als Gesamtsystem die Brandschutzanforderungen Broof (t1) erfüllen und deren Untersicht mindestens in Klasse A2 ausgeführt ist","0,25",0.25),
+	array("Decken/Dächer aus Holz und Holzwerkstoffen der Klasse D mit Dämmstoffen Klasse A2","0,35",0.35),
+	array("Decken/Dächer aus Sandwichpaneelen Gesamtsystem Klasse C","0,35",0.35),
+	array("Decken/Dächer aus Holz und Holzwerkstoffen der Klasse D","0,50",0.5)
+);
+
+echo '<br>';
+
+echo '<b>Decken / Dächer:</b>';
+$i=0;
+echo '<div class="w3-responsive"><table class="w3-table w3-striped">';
+foreach ($decken as $decke) {
+	echo '<tr>
+			<td><input class="w3-radio" type="radio" name="options_brandbelastung_decke" value="'.$decke[2].'" id="options_brandbelastung_decke'.$i.'" '.($i==0 ? 'checked' : '').'></td>
+			<td>'.$decke[0].'</td>
+			<td style="width: 200px">(q<sub>LWi-Decke</sub> = '.$decke[1].' l/(m²min))</td>
+		 </tr>';
+	$i++;
+}
+echo '</table></div>';
+?>
+
+<p style="font-weight:bold">Q<sub>LWi</sub> = Q<sub>LWi-Wand</sub> + Q<sub>LWi-Decke</sub> = <input type="text" id="qlwi" readonly style="width:100px"> l/min</p>
+
+
+
+
+<br/><br/>
+
 <h3>2.2. Spezifische L&ouml;schwasserrate f&uuml;r die mobile Brandbelastung</h3>
 <div class="w3-row">
 	<!--<div class="w3-third">
@@ -131,10 +164,22 @@
 </div>
 
 
-<br class="vertical_sep"><br class="vertical_sep">
 
 <!-- L&ouml;schwasserbereitstellung -->
 <h2>3. L&ouml;schwasserbereitstellung</h2>
+
+<!-- Grundschutz -->
+<h2>3.1. Tats&auml;chlich vorhandener L&ouml;schwasserbedarf f&uuml;r den Grundschutz</h2>
+<div class="w3-row">
+	<div class="w3-twothird" style="padding-right:10px;">
+		L&ouml;schwasserrate Q<sub>LWG</sub> f&uuml;r eine Lieferdauer von 90min gem&auml;ß beiliegender Angabe des kommunalen Wasserversorgungsunternehmes bzw. der Erhebung entsprechend der &Ouml;BF-Rl. VB01:
+	</div>
+	<div class="w3-third" style="font-weight:bold">
+		Q<sub>LWG</sub> = <input id="qlwg" type="text" style="width:100px"> l/min
+		<div id="label_lwg" class="w3-panel w3-pale-red w3-leftbar w3-border-red" style="font-weight: 400;">Bitte geben Sie Q<sub>LWG</sub> an...</div> 
+	</div>
+</div>
+
 <div class="w3-row">
 	<div class="w3-half" style="font-weight:bold">
 		L&ouml;schwasserbereitstellung = <input type="text" id="lw_bereitstellung" readonly style="width:100px"> l/min
