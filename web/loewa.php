@@ -1,21 +1,13 @@
-<script type="text/javascript" src="js/calculation.js"></script>
-<script type="text/javascript" src="js/calculation_lib.js"></script>
-
 <?php 
-	/*include("anhang.php"); 
-	ksort($nutzungsfaktoren, SORT_REGULAR);
-	echo '<script type="text/javascript"> nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
-
-	if (isset($_GET['json']) && isset($_SESSION['LOEWA_USER'])) {
-		if (file_exists("data/".$_SESSION['LOEWA_USER']."/".$_GET['json'].".json")) {
-			$handle = fopen("data/".$_SESSION['LOEWA_USER']."/".$_GET['json'].".json", "rb");
-			echo '<script type="text/javascript">';
-			echo ' json_data = jQuery.parseJSON(\''.stream_get_contents($handle).'\');';
-			echo '</script>';
-			fclose($handle);
-		}
-	}*/
+include("anhang.php"); 
+ksort($nutzungsfaktoren, SORT_REGULAR);
+echo '<script type="text/javascript"> nutzungsfaktoren = jQuery.parseJSON(\''.json_encode($nutzungsfaktoren).'\'); </script>';
 ?>
+
+<script type="text/javascript" src="js/calculation.js"></script>
+
+
+
 <div class="w3-container">
 
 <h1>Objektbezogene L&ouml;schwasserbedarfsermittlung <small>(gem&auml;ß TRVB F 137)</small></h1>
@@ -93,14 +85,14 @@ echo '</table></div>';
 
 
 <br/><br/>
+<h3>1.2. Spezifische L&ouml;schwasserrate f&uuml;r die mobile Brandbelastung</h3>
 
-<h3>2.2. Spezifische L&ouml;schwasserrate f&uuml;r die mobile Brandbelastung</h3>
 <div class="w3-row">
 	<!--<div class="w3-third">
 		laufende Nr.: <input type="text" id="lfd_nr" style="width:50px" readonly>
 	</div>-->
 	<div class="w3-twothird">
-		Nutzung: <select id="nutzung">
+		Nutzung: <select id="nutzung" class="w3-select w3-border" style="width:300px">
 			<option value=""> </option>
 			<?php
 				foreach ($nutzungsfaktoren as $key=>$faktor) {
@@ -116,11 +108,13 @@ echo '</table></div>';
 	</div>
 </div>
 
-<br/>
-<h3>2.3. Rechnerische Brandfl&auml;che</h3>
+
+<br/><br/>
+<h3>1.3. Rechnerische Brandfl&auml;che</h3>
+
 <div class="w3-row">
 	<div class="w3-twothird" style="padding-right:20px;">
-		Brandabschnittsfl&auml;che A<sub>B</sub> = <input type="text" id="ab_in" style="width:100px"> m²
+		Brandabschnittsfl&auml;che A<sub>B</sub> = <input id="ab_in" style="width:100px" type="number" min="0"> m²
 		<div id="label_ab" class="w3-panel w3-pale-red w3-leftbar w3-border-red" style="font-weight: 400;">Bitte geben Sie A<sub>B</sub> ein...</div>
 	</div>
 	<div class="w3-third">
@@ -143,7 +137,7 @@ echo '</table></div>';
 			<td>Betriebsfeuerwehr (K3.2 gem. OIB-RL) und Brandmeldeanlage (TRVB 123 S) mit Alarmweiterleitung zur Betriebsfeuerwehr</td>
 		</tr>
 		<tr>
-			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="750" id="options_brandflaeche3"></td>
+			<td><input class="w3-radio" type="radio" name="options_brandflaeche" value="750" id="options_brandflaeche4"></td>
 			<td>Automatische Feuerlöschanlage (TRVB 127 S) oder Sauerstoffreduktionsanlage (TRVB S 155) jeweils mit Alarmweiterleitung (TRVB 114 S)</td>
 		</tr>
 	</table>
@@ -151,7 +145,7 @@ echo '</table></div>';
 
 	
 <br/><br/>
-<h3>2.4. L&ouml;schwasserrate f&uuml;r den Objektschutz</h3>
+<h3>1.4. L&ouml;schwasserrate f&uuml;r den Objektschutz</h3>
 <div class="w3-row">
 	<div class="w3-twothird">
 		Eingabe nur relevant, wenn Lagerh&ouml;he h<sub>L</sub> von Lager oder Lagerungen > 2,5m:
@@ -165,23 +159,26 @@ echo '</table></div>';
 
 
 
-
+<br/><br/>
+<br/><br/>
 
 <!-- L&ouml;schwasserbereitstellung -->
-<h2>3. L&ouml;schwasserbereitstellung</h2>
+<h2>2. L&ouml;schwasserbereitstellung</h2>
 
 <!-- Grundschutz -->
-<h2>3.1. Tats&auml;chlich vorhandener L&ouml;schwasserbedarf f&uuml;r den Grundschutz</h2>
+<h3>2.1. Tats&auml;chlich vorhandener L&ouml;schwasserbedarf f&uuml;r den Grundschutz</h3>
 <div class="w3-row">
 	<div class="w3-twothird" style="padding-right:10px;">
 		L&ouml;schwasserrate Q<sub>LWG</sub> f&uuml;r eine Lieferdauer von 90min gem&auml;ß beiliegender Angabe des kommunalen Wasserversorgungsunternehmes bzw. der Erhebung entsprechend der &Ouml;BF-Rl. VB01:
 	</div>
 	<div class="w3-third" style="font-weight:bold">
-		Q<sub>LWG</sub> = <input id="qlwg" type="text" style="width:100px"> l/min
+		Q<sub>LWG</sub> = <input id="qlwg" type="number" min="0" value="0" style="width:100px"> l/min
 		<div id="label_lwg" class="w3-panel w3-pale-red w3-leftbar w3-border-red" style="font-weight: 400;">Bitte geben Sie Q<sub>LWG</sub> an...</div> 
 	</div>
 </div>
 
+<br/><br/>
+<h3>2.2. Resultierender Löschwasservorrat</h3>
 <div class="w3-row">
 	<div class="w3-half" style="font-weight:bold">
 		L&ouml;schwasserbereitstellung = <input type="text" id="lw_bereitstellung" readonly style="width:100px"> l/min
