@@ -26,12 +26,10 @@
   <link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128">
   <link rel="apple-touch-icon" href="favicon-128x128.png"/>
   <link rel="stylesheet" href="css/w3.css" type="text/css" media="screen" />
-  <link rel='stylesheet' href='css/simplelightbox.css' type='text/css'>
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 
   <script src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/simplelightbox.js"></script>
-  <script src="js/navigation.js" type="text/javascript"></script>
+    <script src="js/navigation.js" type="text/javascript"></script>
   <script type="text/javascript">
   <!--
     var baseUrl = "http://www.feuerwehr-karlstetten.at";
