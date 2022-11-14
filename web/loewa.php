@@ -201,11 +201,6 @@ echo '</table></div>';
 	<div class="w3-half">
 		<!-- Button to print form -->
 		<button class="w3-button w3-green w3-large" href="#" role="button" id="btnPrint"><i class="fa fa-print w3-hover-opacity"></i> Drucken</button>
-		&nbsp;&nbsp;&nbsp;
-		<!-- Button to trigger modal -->
-	<?php if (isset($_SESSION['LOEWA_USER'])) { ?>
-		<button id="btnDialog" href="#" class="w3-button w3-green w3-large"><i class="fa fa-save w3-hover-opacity"></i> Berechnung speichern</button>
-	<?php } ?>
 	</div>
 </div>
 </div>

@@ -121,7 +121,13 @@ $(document).ready(function() {
 		$( this ).removeClass( "not-allowed" );
 	});
 	
-	
+
+	$('#btnPrint').click(function() {
+		window.print();
+		return false;
+	});
+
+
 	$('#qlwg').keyup(function() {
 		$(this).val($(this).val().replace(/,/,"."));
 
