@@ -139,6 +139,10 @@ $(document).ready(function() {
 		$(this).val($(this).val().replace(/,/,"."));
 		calcResult();
 	});
+	$('#hl').change(function() {
+		$(this).val($(this).val().replace(/,/,"."));
+		calcResult();
+	});
 
 	$('#hl').blur(function() {
 		$(this).val($(this).val().replace(/,/,"."));
